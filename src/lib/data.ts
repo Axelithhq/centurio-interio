@@ -14,7 +14,7 @@ export const businessInfo = {
     full: "A-3 Victoria Empire, Fateh Tiba, Deepak Marg, Adarsh Nagar, Jaipur, Rajasthan – 302004",
   },
   mapSrc:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.5!2d75.8!3d26.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4b8e8c8e8e8f%3A0x8e8e8e8e8e8e8e8e!2sAdarsh%20Nagar%2C%20Jaipur%2C%20Rajasthan%20302004!5e0!3m2!1sen!2sin!4v1",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14233.3!2d75.8236552!3d26.9077589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db7cb82786bb1%3A0x51b20f83eb384dc9!2sCENTURIO+DESIGNS!5e0!3m2!1sen!2sin!4v1",
   social: {
     instagram: "https://instagram.com/centuriodesigns",
     whatsapp: "https://wa.me/919929484849",
