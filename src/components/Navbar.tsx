@@ -46,7 +46,7 @@ export default function Navbar() {
             href="/"
             className="font-playfair text-2xl md:text-3xl tracking-tight text-charcoal"
           >
-            Centurio<span className="text-gold">.</span>
+            CENTURIO<span className="text-gold"> DESIGNS</span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">

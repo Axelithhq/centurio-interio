@@ -185,7 +185,7 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-lg md:text-xl lg:text-2xl font-light max-w-3xl mx-auto mb-10"
           >
-            Premium Interior Design & Architectural Solutions in Makrana.
+            Premium Interior Design & Architectural Solutions in Jaipur.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -446,7 +446,7 @@ export default function HomePage() {
       <SectionWrapper className="section-padding bg-white" id="why-us">
         <div className="max-w-7xl mx-auto">
           <SectionTitle
-            title="Why Centurio Design Studio?"
+            title="Why CENTURIO DESIGNS?"
             subtitle="What sets us apart is our unwavering commitment to excellence and client satisfaction."
           />
           <motion.div
@@ -482,7 +482,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <SectionTitle
             title="What Our Clients Say"
-            subtitle="Hear from our clients across Makrana and Rajasthan about their experience with us."
+            subtitle="Hear from our clients across Jaipur and Rajasthan about their experience with us."
             light
           />
           <motion.div
@@ -599,7 +599,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto">
           <SectionTitle
             title="Frequently Asked Questions"
-            subtitle="Everything you need to know about working with Centurio Design Studio."
+            subtitle="Everything you need to know about working with CENTURIO DESIGNS."
           />
           <div className="space-y-3">
             {faqs.map((faq, i) => (
@@ -757,7 +757,7 @@ export default function HomePage() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Centurio Design Studio Location"
+          title="CENTURIO DESIGNS - Jaipur Location"
         />
       </SectionWrapper>
 

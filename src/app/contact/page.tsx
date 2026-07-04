@@ -413,7 +413,7 @@ export default function ContactPage() {
                   <InfoCard
                     icon={<ClockIcon />}
                     label="Business Hours"
-                    value="Mon - Sat: 9:00 AM - 7:00 PM"
+                    value="Mon - Sat: 10:30 AM - 7:30 PM"
                   />
                 </div>
 
@@ -466,7 +466,7 @@ export default function ContactPage() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Centurio Design Studio Location"
+          title="CENTURIO DESIGNS - Jaipur Location"
         />
       </section>
     </main>

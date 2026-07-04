@@ -27,8 +27,8 @@ export default function Loader() {
             className="text-center"
           >
             <h1 className="font-playfair text-4xl md:text-5xl text-charcoal mb-4">
-              Centurio
-              <span className="text-gold">.</span>
+              CENTURIO
+              <span className="text-gold"> DESIGNS</span>
             </h1>
             <div className="flex items-center gap-1.5 mt-6">
               {[0, 1, 2, 3, 4].map((i) => (

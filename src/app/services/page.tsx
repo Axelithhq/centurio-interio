@@ -135,7 +135,7 @@ export default function ServicesPage() {
       <SectionWrapper className="section-padding bg-white" id="why-choose-us">
         <div className="max-w-7xl mx-auto">
           <SectionTitle
-            title="Why Centurio Design Studio?"
+            title="Why CENTURIO DESIGNS?"
             subtitle="What sets us apart is our unwavering commitment to excellence and client satisfaction."
           />
           <motion.div

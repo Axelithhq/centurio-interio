@@ -1,24 +1,24 @@
 export const businessInfo = {
-  name: "Centurio Design Studio",
+  name: "CENTURIO DESIGNS",
   tagline: "Designing Spaces That Inspire.",
   description:
-    "Premium interior design and architectural solutions crafting luxury residential and commercial spaces across Makrana, Rajasthan.",
+    "Premium interior design and architectural solutions crafting luxury residential and commercial spaces across Jaipur, Rajasthan.",
   phone: "+91 99294 84849",
   phoneDisplay: "+91 99294 84849",
-  email: "hello@centuriodesign.com",
+  email: "hello@centuriodesigns.in",
   address: {
-    line1: "Jusri Road, Near Neel Gagan Hotel",
-    line2: "Opposite Pragati Medical Store",
-    city: "Makrana",
+    line1: "A-3 Victoria Empire, Fateh Tiba",
+    line2: "Deepak Marg, Adarsh Nagar",
+    city: "Jaipur",
     state: "Rajasthan",
-    full: "Jusri Road, Near Neel Gagan Hotel, Opposite Pragati Medical Store, Makrana, Rajasthan",
+    full: "A-3 Victoria Empire, Fateh Tiba, Deepak Marg, Adarsh Nagar, Jaipur, Rajasthan – 302004",
   },
   mapSrc:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.5!2d74.7!3d27.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDAwJzAwLjAiTiA3NMKwNDInMDAuMCJF!5e0!3m2!1sen!2sin!4v1",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.5!2d75.8!3d26.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4b8e8c8e8e8f%3A0x8e8e8e8e8e8e8e8e!2sAdarsh%20Nagar%2C%20Jaipur%2C%20Rajasthan%20302004!5e0!3m2!1sen!2sin!4v1",
   social: {
-    instagram: "https://instagram.com/centuriodesign",
+    instagram: "https://instagram.com/centuriodesigns",
     whatsapp: "https://wa.me/919929484849",
-    facebook: "https://facebook.com/centuriodesign",
+    facebook: "https://facebook.com/centuriodesigns",
   },
 };
 
@@ -157,9 +157,9 @@ export const testimonials = [
   {
     id: 1,
     name: "Priya Sharma",
-    location: "Makrana",
+    location: "Jaipur",
     rating: 5,
-    text: "Centurio Design Studio transformed our home into a masterpiece. Their attention to detail and understanding of our vision was remarkable. Every corner of our home reflects elegance and comfort.",
+    text: "CENTURIO DESIGNS transformed our home into a masterpiece. Their attention to detail and understanding of our vision was remarkable. Every corner of our home reflects elegance and comfort.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
   },
   {
@@ -173,7 +173,7 @@ export const testimonials = [
   {
     id: 3,
     name: "Ananya Gupta",
-    location: "Makrana",
+    location: "Jaipur",
     rating: 5,
     text: "The turnkey project service made the entire renovation process seamless. From concept to completion, everything was handled with utmost professionalism.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
@@ -189,7 +189,7 @@ export const testimonials = [
   {
     id: 5,
     name: "Neha Joshi",
-    location: "Makrana",
+    location: "Jaipur",
     rating: 4,
     text: "Beautiful modern kitchen design that perfectly balances aesthetics with functionality. The team was very receptive to our ideas and offered valuable suggestions.",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&q=80",
@@ -215,7 +215,7 @@ export const faqs = [
   },
   {
     q: "What areas do you serve?",
-    a: "We are based in Makrana, Rajasthan, and provide services across Makrana, Ajmer, Jaipur, Jodhpur, and surrounding regions in Rajasthan.",
+    a: "We are based in Jaipur, Rajasthan, and provide services across Jaipur, Ajmer, Jodhpur, and surrounding regions in Rajasthan.",
   },
   {
     q: "Do you handle both design and construction?",
@@ -234,8 +234,8 @@ export const faqs = [
     a: "We specialize in luxury, modern, and minimalist interiors. Our signature style combines clean lines, premium materials, and elegant gold accents against neutral palettes.",
   },
   {
-    q: "How do I start working with Centurio Design Studio?",
-    a: "Simply contact us via phone, email, or our website form. We'll schedule a free consultation to discuss your vision, budget, and timeline.",
+    q: "How do I start working with CENTURIO DESIGNS?",
+    a: "Simply contact us via phone, email, or our website form. We'll schedule a free consultation to discuss your vision, budget, and timeline. Visit our studio in Adarsh Nagar, Jaipur to see our work firsthand.",
   },
 ];
 
@@ -321,7 +321,7 @@ export const whyChooseUs = [
   {
     title: "Client Satisfaction",
     description:
-      "Our reputation is built on glowing client testimonials and long-term relationships across Makrana and Rajasthan.",
+      "Our reputation is built on glowing client testimonials and long-term relationships across Jaipur & Rajasthan.",
     icon: "heart",
   },
 ];
@@ -331,7 +331,7 @@ export const teamMembers = [
     name: "Ar. Vikram Rathore",
     role: "Principal Architect & Founder",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-    bio: "Visionary architect with 18+ years of experience in luxury residential and commercial design.",
+    bio: "Visionary architect with 18+ years of experience in luxury residential and commercial design across Jaipur and Rajasthan.",
   },
   {
     name: "Ananya Sharma",

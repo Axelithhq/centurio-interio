@@ -107,7 +107,7 @@ export default function AboutPage() {
               <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-sm">
                 <Image
                   src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80"
-                  alt="Centurio Design Studio - Interior Design"
+                  alt="CENTURIO DESIGNS - Interior Design"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -132,7 +132,7 @@ export default function AboutPage() {
               <div className="space-y-4 text-gray-600 text-base leading-relaxed">
                 <p>
                   {businessInfo.name} is a premier interior architecture and
-                  design firm based in Makrana, Rajasthan. Since our inception in
+                  design firm based in Jaipur, Rajasthan. Since our inception in
                   2015, we have been dedicated to crafting spaces that blend
                   timeless elegance with modern functionality.
                 </p>
@@ -294,7 +294,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <SectionTitle
             title="Why Work With Us?"
-            subtitle="What makes Centurio Design Studio the preferred choice across Rajasthan."
+            subtitle="What makes CENTURIO DESIGNS the preferred choice across Rajasthan."
           />
           <motion.div
             variants={staggerContainer}

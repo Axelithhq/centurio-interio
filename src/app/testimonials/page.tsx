@@ -179,7 +179,7 @@ export default function TestimonialsPage() {
             className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto"
           >
             Your feedback inspires us to keep creating beautiful spaces. We'd
-            love to hear about your Centurio experience.
+            love to hear about your CENTURIO DESIGNS experience.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

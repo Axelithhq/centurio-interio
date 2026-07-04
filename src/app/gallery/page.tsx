@@ -231,15 +231,15 @@ export default function GalleryPage() {
               <span className="gold-text">Instagram</span>
             </h2>
             <p className="text-gray-400 text-lg mb-8">
-              @centuriodesign
+              @centuriodesigns
             </p>
             <Link
-              href="https://instagram.com/centuriodesign"
+              href="https://instagram.com/centuriodesigns"
               target="_blank"
               rel="noopener noreferrer"
               className="gold-bg text-white px-10 py-4 rounded-sm text-sm font-medium tracking-widest uppercase inline-block hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
             >
-              Follow @centuriodesign
+              Follow @centuriodesigns
             </Link>
           </motion.div>
         </div>

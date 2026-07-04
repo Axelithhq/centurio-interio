@@ -7,15 +7,15 @@ import FloatingButtons from "@/components/FloatingButtons";
 import Loader from "@/components/Loader";
 
 export const metadata: Metadata = {
-  title: "Centurio Design Studio | Premium Interior Design & Architecture",
+  title: "CENTURIO DESIGNS | Premium Interior Design & Architecture in Jaipur",
   description:
-    "Premium interior design and architectural solutions in Makrana, Rajasthan. Luxury residential, commercial, and turnkey projects by Centurio Design Studio.",
+    "Premium interior design and architectural solutions in Jaipur, Rajasthan. Luxury residential, commercial, and turnkey projects by CENTURIO DESIGNS.",
   keywords:
-    "interior design, architecture, Makrana, Rajasthan, residential interiors, commercial interiors, luxury design, turnkey projects",
+    "interior design, architecture, Jaipur, Rajasthan, residential interiors, commercial interiors, luxury design, turnkey projects, CENTURIO DESIGNS",
   openGraph: {
-    title: "Centurio Design Studio | Premium Interior Design & Architecture",
+    title: "CENTURIO DESIGNS | Premium Interior Design & Architecture in Jaipur",
     description:
-      "Premium interior design and architectural solutions in Makrana, Rajasthan.",
+      "Premium interior design and architectural solutions in Jaipur, Rajasthan.",
     type: "website",
     locale: "en_IN",
   },

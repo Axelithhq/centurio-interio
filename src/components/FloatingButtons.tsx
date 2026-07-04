@@ -23,7 +23,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "https://instagram.com/centuriodesign",
+    href: "https://instagram.com/centuriodesigns",
     label: "Instagram",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
