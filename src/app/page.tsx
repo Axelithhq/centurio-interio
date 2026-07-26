@@ -16,6 +16,7 @@ import Background3D from "@/components/Background3D";
 import Room360Inspector from "@/components/Room360Inspector";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import LayoutGallery from "@/components/LayoutGallery";
+import ProcessTimeline from "@/components/ProcessTimeline";
 import HorizontalGallery from "@/components/HorizontalGallery";
 import StatsCounter from "@/components/StatsCounter";
 import Navbar from "@/components/Navbar";
@@ -302,53 +303,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <MouseParallax3D intensity={5} perspective={1500} className="relative">
-              {/* Vertical Connecting Glow Line */}
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/10 via-gold to-gold/10 md:-translate-x-px" />
-
-              <div className="space-y-16 md:space-y-24">
-                {designProcess.map((proc, i) => {
-                  const isEven = i % 2 === 0;
-                  return (
-                    <motion.div
-                      key={proc.step}
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: i * 0.1 }}
-                      className={`relative flex flex-col md:flex-row items-center gap-8 ${
-                        isEven ? "md:flex-row" : "md:flex-row-reverse"
-                      }`}
-                    >
-                      {/* Step Circle Marker */}
-                      <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-charcoal border-2 border-gold flex items-center justify-center font-mono text-gold text-xs font-bold z-10 shadow-lg shadow-gold/20">
-                        {proc.step}
-                      </div>
-
-                      {/* Content Box */}
-                      <div className={`w-full md:w-1/2 pl-16 md:pl-0 ${isEven ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
-                        <span className="text-gold text-xs font-mono uppercase tracking-widest block mb-1">
-                          {proc.subtitle}
-                        </span>
-                        <h3 className="font-serif-luxury text-2xl md:text-3xl text-white mb-3">
-                          {proc.title}
-                        </h3>
-                        <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-light">
-                          {proc.description}
-                        </p>
-                      </div>
-
-                      {/* Image Box */}
-                      <div className="w-full md:w-1/2 pl-16 md:pl-0">
-                        <div className="relative h-56 sm:h-64 w-full rounded-sm overflow-hidden border border-white/10 shadow-xl">
-                          <Image src={proc.image} alt={proc.title} fill className="object-cover" />
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </MouseParallax3D>
+            <ProcessTimeline />
           </div>
         </section>
 
