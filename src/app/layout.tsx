@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Watermark from "@/components/Watermark";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="bg-ivory text-charcoal antialiased">
         <main>{children}</main>
+        <Watermark />
       </body>
     </html>
   );
