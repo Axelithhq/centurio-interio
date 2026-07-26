@@ -13,10 +13,23 @@ module.exports = {
         "gold-dark": "#A88B4F",
         charcoal: "#1A1A1A",
         "off-white": "#FAFAF8",
+        ivory: "#FAF6F0",
+        sand: "#F0EAE0",
+        "cream-warm": "#FAF6F0",
+        "cream-gold": "#F5EDE0",
+        "sand-deep": "#EDE7DC",
       },
       fontFamily: {
         playfair: ["Playfair Display", "serif"],
         poppins: ["Poppins", "sans-serif"],
+        cormorant: ["Cormorant Garamond", "serif"],
+      },
+      backgroundImage: {
+        "gold-gradient": "linear-gradient(135deg, #C8A96A 0%, #E3C98A 50%, #C8A96A 100%)",
+        "luxury-light": "linear-gradient(175deg, #FAF6F0 0%, #F5EDE0 35%, #EDE7DC 70%, #F0EAE0 100%)",
+        "luxury-mid": "linear-gradient(175deg, #F0EAE0 0%, #E8E0D4 40%, #DDD5C8 70%, #E5DED4 100%)",
+        "luxury-dark": "linear-gradient(175deg, #141414 0%, #1A1A1A 40%, #0E0E0E 100%)",
+        "luxury-sand": "linear-gradient(170deg, #F4F0EA 0%, #EDE7DC 30%, #E5DDD0 60%, #EDE7DC 100%)",
       },
       animation: {
         "fade-up": "fadeUp 0.8s ease-out forwards",
@@ -24,6 +37,10 @@ module.exports = {
         "slide-up": "slideUp 0.6s ease-out forwards",
         "scale-in": "scaleIn 0.5s ease-out forwards",
         "gold-shimmer": "goldShimmer 3s ease-in-out infinite",
+        "float-3d": "float3D 8s ease-in-out infinite",
+        "orb-float": "orbFloat 12s ease-in-out infinite",
+        "rotate-3d": "rotate3D 10s ease-in-out infinite",
+        "shimmer-line": "shimmerLine 4s ease-in-out infinite",
       },
       keyframes: {
         fadeUp: {
@@ -46,10 +63,6 @@ module.exports = {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
         },
-      },
-      backgroundImage: {
-        "gold-gradient":
-          "linear-gradient(135deg, #C8A96A 0%, #E3C98A 50%, #C8A96A 100%)",
       },
     },
   },

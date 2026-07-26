@@ -1,11 +1,11 @@
 export const businessInfo = {
-  name: "CENTURIO DESIGNS",
-  tagline: "Designing Spaces That Inspire.",
+  name: "CENTURIO INTERIOR STUDIO",
+  tagline: "High-End Architectural Interiors & Bespoke Spaces",
   description:
-    "Premium interior design and architectural solutions crafting luxury residential and commercial spaces across Jaipur, Rajasthan.",
+    "Award-winning luxury interior design & architecture studio crafting ultra-modern residential residences and prestigious commercial environments.",
   phone: "+91 99294 84849",
   phoneDisplay: "+91 99294 84849",
-  email: "hello@centuriodesigns.in",
+  email: "concierge@centuriodesigns.in",
   address: {
     line1: "A-3 Victoria Empire, Fateh Tiba",
     line2: "Deepak Marg, Adarsh Nagar",
@@ -22,306 +22,389 @@ export const businessInfo = {
   },
 };
 
+export const studioStats = [
+  { label: "Years of Craftsmanship", value: 14, suffix: "+" },
+  { label: "Luxury Residencies", value: 340, suffix: "+" },
+  { label: "Design Excellence Awards", value: 22, suffix: "" },
+  { label: "Sq. Ft. Designed", value: 920, suffix: "k+" },
+];
+
 export const services = [
   {
     id: 1,
-    title: "Residential Interiors",
+    title: "Bespoke Residential Interiors",
     description:
-      "Transform your home into a sanctuary of style and comfort with our bespoke residential interior design solutions.",
+      "Sculptural living rooms, serene master suites, and bespoke architectural homes tailored to refined tastes.",
     icon: "home",
+    tag: "Residential",
     image:
       "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80",
+    features: ["Custom Spatial Layouts", "Bespoke Joinery & Millwork", "Curated Furniture & Artwork"],
   },
   {
     id: 2,
-    title: "Commercial Interiors",
+    title: "Commercial & Boutique Architecture",
     description:
-      "Elevate your business environment with functional yet aesthetically compelling commercial spaces.",
+      "Immersive executive headquarters, Michelin-tier dining venues, and high-end retail flagships.",
     icon: "building",
+    tag: "Commercial",
     image:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    features: ["Acoustic & Lighting Optimization", "Brand Spatial Identity", "Ergonomic Layout Integration"],
   },
   {
     id: 3,
-    title: "Architecture Design",
+    title: "Architectural Renovation & Additions",
     description:
-      "Comprehensive architectural planning and design services that blend form with function.",
+      "Complete structural reconfiguration and heritage restorations with seamless modern architectural additions.",
     icon: "arch",
+    tag: "Renovation",
     image:
       "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&q=80",
+    features: ["Structural Re-engineering", "Indoor-Outdoor Transitions", "Facade Modernization"],
   },
   {
     id: 4,
-    title: "Turnkey Projects",
+    title: "Turnkey Design Management",
     description:
-      "End-to-end project management from concept to completion, delivering your dream space hassle-free.",
+      "White-glove end-to-end execution. From concept sketching, permits, contractor management to final handover.",
     icon: "turnkey",
+    tag: "Turnkey",
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    features: ["Full Budget Governance", "Timeline Assurance", "Curated Handshake Handover"],
   },
   {
     id: 5,
-    title: "Luxury Interiors",
+    title: "Luxury Material Consultation",
     description:
-      "Opulent design solutions featuring premium materials, custom furnishings, and exquisite detailing.",
+      "Exclusive access to rare European marbles, hand-loomed textiles, engineered woods, and custom metalwork.",
     icon: "luxury",
+    tag: "Consultation",
     image:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    features: ["Global Material Sourcing", "Physical Sample Palette Labs", "Custom Surface Testing"],
   },
   {
     id: 6,
-    title: "Modular Solutions",
+    title: "Modular & Custom Systems",
     description:
-      "Contemporary modular kitchen, wardrobe, and storage solutions optimized for space and style.",
+      "Precision German-engineered kitchens, hidden walk-in wardrobes, and seamless integrated storage.",
     icon: "modular",
+    tag: "Modular",
     image:
       "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=800&q=80",
+    features: ["Soft-Close Hardware Systems", "Integrated Architectural Lighting", "Ergonomic Storage Math"],
   },
 ];
 
 export const portfolioItems = [
   {
     id: 1,
-    title: "Modern Luxury Villa",
+    title: "The Solarium Villa",
     category: "Residential",
+    year: "2025",
+    location: "Civil Lines, Jaipur",
     image:
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80",
+    description: "A 8,500 sq.ft minimalist sanctuary featuring floor-to-ceiling glass, Italian travertine walls, and floating oak stairs.",
+  },
+  {
+    id: 2,
+    title: "Monolith Executive Lounge",
+    category: "Commercial",
+    year: "2024",
+    location: "C-Scheme, Jaipur",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
+    description: "Ultra-sleek corporate headquarters with integrated smart acoustic paneling and custom brushed brass partitions.",
+  },
+  {
+    id: 3,
+    title: "Aura Sky Penthouse",
+    category: "Residential",
+    year: "2025",
+    location: "Raja Park, Jaipur",
+    image:
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=1200&q=80",
+    description: "Panoramic luxury apartment designed with warm sand tones, ambient LED light coves, and custom bouclé lounges.",
+  },
+  {
+    id: 4,
+    title: "Verdant Courtyard Estate",
+    category: "Hospitality",
+    year: "2024",
+    location: "Udaipur",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80",
+    description: "Heritage boutique sanctuary blending traditional Rajasthani stone arches with contemporary glass curtain facades.",
+  },
+  {
+    id: 5,
+    title: "L'Ombre Dining Sanctuary",
+    category: "Commercial",
+    year: "2024",
+    location: "Tonk Road, Jaipur",
+    image:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80",
+    description: "Atmospheric fine dining venue utilizing warm terracotta wall renders, indirect amber lighting, and dark marble bars.",
+  },
+  {
+    id: 6,
+    title: "Sanctuary Hill Residence",
+    category: "Residential",
+    year: "2025",
+    location: "Vaishali Nagar, Jaipur",
+    image:
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    description: "Minimalist multi-level home emphasizing natural lighting, Japanese timber joinery, and subterranean wellness spa.",
+  },
+];
+
+export const roomHotspots = [
+  {
+    id: "h1",
+    x: 42,
+    y: 68,
+    title: "Calacatta Honed Marble",
+    category: "Surface & Floor",
+    desc: "Seamless bookmatched natural Italian marble slab with low-reflection satin polish.",
+    specs: ["Grain: Gold/Grey veining", "Thickness: 20mm", "Origin: Carrara, Italy"],
+  },
+  {
+    id: "h2",
+    x: 52,
+    y: 28,
+    title: "Linear Brass Chandelier",
+    category: "Architectural Lighting",
+    desc: "Sculptural brushed champagne brass fixture with indirect warm light diffusion.",
+    specs: ["Output: 2700K Warm Dim", "Finish: Aged Champagne Brass", "Custom Suspended"],
+  },
+  {
+    id: "h3",
+    x: 74,
+    y: 64,
+    title: "Bespoke Bouclé Lounge",
+    category: "Custom Furniture",
+    desc: "Curved ergonomic silhouette upholstered in stain-resistant wool-blend bouclé.",
+    specs: ["Fabric: Italian Wool Blend", "Frame: Kiln-dried Ash", "Custom Density Foam"],
+  },
+  {
+    id: "h4",
+    x: 28,
+    y: 44,
+    title: "Acoustic Fluted Oak Wall",
+    category: "Architectural Paneling",
+    desc: "Vertical fluted European oak slatted paneling providing subtle warmth & sound dampening.",
+    specs: ["Material: FSC European White Oak", "Acoustic: NRC 0.85 Rating", "Hidden Fasteners"],
+  },
+];
+
+export const materialSwatches = [
+  {
+    id: "m1",
+    name: "Calacatta Gold Marble",
+    type: "Stone Surface",
+    color: "#E2DEC9",
+    accent: "#C8A96A",
+    desc: "Luminous white marble with warm gold and taupe veining.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80",
+  },
+  {
+    id: "m2",
+    name: "European White Oak",
+    type: "Hardwood",
+    color: "#C5B297",
+    accent: "#9E8B6F",
+    desc: "Wire-brushed natural timber with subtle matte oil finish.",
+    image: "https://images.unsplash.com/photo-1546484475-7f7bd55792da?w=400&q=80",
+  },
+  {
+    id: "m3",
+    name: "Brushed Champagne Brass",
+    type: "Architectural Metal",
+    color: "#D4B982",
+    accent: "#8B7340",
+    desc: "Electro-plated satin metal with protective anti-fingerprint coating.",
+    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=400&q=80",
+  },
+  {
+    id: "m4",
+    name: "Bouclé Ivory Wool",
+    type: "Textile",
+    color: "#ECE8E1",
+    accent: "#D3CBBF",
+    desc: "Heavyweight tactile fabric crafted from pure organic wool fibers.",
+    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&q=80",
+  },
+  {
+    id: "m5",
+    name: "Terracotta Clay Render",
+    type: "Wall Coating",
+    color: "#B86B53",
+    accent: "#8F4B36",
+    desc: "Breathable natural mineral plaster with hand-troweled texture.",
+    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&q=80",
+  },
+];
+
+export const transformations = [
+  {
+    id: 1,
+    title: "Penthouse Great Room Overhaul",
+    beforeText: "Raw Concrete Shell (Pre-Construction)",
+    afterText: "Finished Luxury Lounge & Fireplace",
+    beforeImage: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80",
+    afterImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    location: "Civil Lines, Jaipur",
   },
   {
     id: 2,
     title: "Executive Office Suite",
-    category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-  },
-  {
-    id: 3,
-    title: "Minimalist Apartment",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80",
-  },
-  {
-    id: 4,
-    title: "Luxury Hotel Lobby",
-    category: "Hospitality",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
-  },
-  {
-    id: 5,
-    title: "Contemporary Restaurant",
-    category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
-  },
-  {
-    id: 6,
-    title: "Penthouse Residence",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-  },
-  {
-    id: 7,
-    title: "Retail Boutique",
-    category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
-  },
-  {
-    id: 8,
-    title: "Garden Villa",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    beforeText: "Dated 1990s Closed Cubicles",
+    afterText: "Open Minimalist Architectural Workspace",
+    beforeImage: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&q=80",
+    afterImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
+    location: "C-Scheme, Jaipur",
   },
 ];
 
 export const galleryImages = [
-  { id: 1, src: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&q=80", alt: "Living Room Design" },
-  { id: 2, src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80", alt: "Luxury Bedroom" },
-  { id: 3, src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80", alt: "Modern Kitchen" },
-  { id: 4, src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80", alt: "Office Interior" },
-  { id: 5, src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80", alt: "Hotel Lobby" },
-  { id: 6, src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80", alt: "Restaurant Design" },
-  { id: 7, src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80", alt: "Exterior Design" },
-  { id: 8, src: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=600&q=80", alt: "Modular Kitchen" },
-  { id: 9, src: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=600&q=80", alt: "Bathroom Design" },
-  { id: 10, src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80", alt: "Staircase Design" },
-  { id: 11, src: "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?w=600&q=80", alt: "Living Room" },
-  { id: 12, src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&q=80", alt: "Architecture Detail" },
+  { id: 1, src: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80", alt: "Living Lounge Space" },
+  { id: 2, src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Master Suite" },
+  { id: 3, src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80", alt: "Architectural Kitchen" },
+  { id: 4, src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80", alt: "Executive Office Suite" },
+  { id: 5, src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", alt: "Boutique Hotel Lobby" },
+  { id: 6, src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", alt: "Restaurant Interior" },
+  { id: 7, src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Exterior Villa Facade" },
+  { id: 8, src: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=800&q=80", alt: "Modular Kitchen Unit" },
+  { id: 9, src: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&q=80", alt: "Spa Bathroom Suite" },
 ];
 
 export const testimonials = [
   {
     id: 1,
-    name: "Priya Sharma",
-    location: "Jaipur",
+    name: "Priya & Rajesh Sharma",
+    role: "Villa Owners",
+    location: "Civil Lines, Jaipur",
     rating: 5,
-    text: "CENTURIO DESIGNS transformed our home into a masterpiece. Their attention to detail and understanding of our vision was remarkable. Every corner of our home reflects elegance and comfort.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
+    text: "CENTURIO INTERIOR STUDIO created a home that feels like a private luxury resort. Their mastery over materials, lighting, and spatial proportion is truly world-class.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
+    project: "Solarium Villa"
   },
   {
     id: 2,
-    name: "Rahul Mehta",
+    name: "Vikramaditya Rathore",
+    role: "Managing Director",
     location: "Jaipur",
     rating: 5,
-    text: "We hired Centurio for our office interiors and the result exceeded our expectations. Professional, punctual, and incredibly talented. Our team loves the new workspace!",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
+    text: "Our executive offices designed by Centurio have drastically elevated client impressions. The level of architectural craftsmanship and timing precision was exemplary.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+    project: "Monolith Suite"
   },
   {
     id: 3,
-    name: "Ananya Gupta",
-    location: "Jaipur",
+    name: "Ananya & Rohan Gupta",
+    role: "Penthouse Owners",
+    location: "Raja Park, Jaipur",
     rating: 5,
-    text: "The turnkey project service made the entire renovation process seamless. From concept to completion, everything was handled with utmost professionalism.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80",
-  },
-  {
-    id: 4,
-    name: "Vikram Singh",
-    location: "Ajmer",
-    rating: 5,
-    text: "Exceptional architectural design coupled with beautiful interiors. They respected our budget while delivering a truly luxurious outcome. Highly recommend!",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80",
-  },
-  {
-    id: 5,
-    name: "Neha Joshi",
-    location: "Jaipur",
-    rating: 4,
-    text: "Beautiful modern kitchen design that perfectly balances aesthetics with functionality. The team was very receptive to our ideas and offered valuable suggestions.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&q=80",
-  },
-  {
-    id: 6,
-    name: "Arun Kumar",
-    location: "Jodhpur",
-    rating: 5,
-    text: "Professional, creative, and detail-oriented. Centurio delivered our luxury villa project on time and within budget. The gold accent details are stunning!",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&q=80",
+    text: "From white-glove material selection to the final unveiling reveal, every step was seamless. The 3D visualization matched our completed apartment with 100% accuracy.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
+    project: "Aura Sky Penthouse"
   },
 ];
 
 export const faqs = [
   {
-    q: "What is the typical timeline for a residential interior project?",
-    a: "Depending on the scope, residential projects typically take 6-12 weeks from design finalization to completion. We provide a detailed timeline during our initial consultation.",
+    q: "What defines CENTURIO's architectural design philosophy?",
+    a: "We practice minimal luxury architectural interior design. We focus on clean geometric proportion, rich natural textures (stone, timber, metal), generous natural lighting, and zero unnecessary visual clutter.",
   },
   {
-    q: "Do you offer free consultations?",
-    a: "Yes, we offer a complimentary initial consultation to understand your requirements, assess the space, and discuss design possibilities along with estimated costs.",
+    q: "How does the initial consultation and 3D visualization process work?",
+    a: "We start with a site visit and spatial audit, followed by concept moodboards and high-fidelity 3D WebGL visualizations. You can experience your future space with interactive materials before construction begins.",
   },
   {
-    q: "What areas do you serve?",
-    a: "We are based in Jaipur, Rajasthan, and provide services across Jaipur, Ajmer, Jodhpur, and surrounding regions in Rajasthan.",
+    q: "Do you handle complete turnkey management from foundation to decor?",
+    a: "Yes. Our white-glove turnkey service includes structural modifications, civil work, custom millwork fabrication, lighting design, material imports, and final artistic styling.",
   },
   {
-    q: "Do you handle both design and construction?",
-    a: "Absolutely. As a full-service interior design and architecture firm, we manage everything from concept design and structural planning to construction and final furnishing.",
-  },
-  {
-    q: "How much do your services cost?",
-    a: "Our pricing varies based on project scope, size, and complexity. We offer customized quotes after the initial site visit and requirement analysis. Contact us for a detailed estimate.",
-  },
-  {
-    q: "Can you work with my existing furniture?",
-    a: "Yes, we love incorporating existing pieces into new designs. Our team can refurbish, reupholster, or reposition your furniture to create a fresh look while retaining sentimental value.",
-  },
-  {
-    q: "What style of interiors do you specialize in?",
-    a: "We specialize in luxury, modern, and minimalist interiors. Our signature style combines clean lines, premium materials, and elegant gold accents against neutral palettes.",
-  },
-  {
-    q: "How do I start working with CENTURIO DESIGNS?",
-    a: "Simply contact us via phone, email, or our website form. We'll schedule a free consultation to discuss your vision, budget, and timeline. Visit our studio in Adarsh Nagar, Jaipur to see our work firsthand.",
+    q: "What is the typical project timeline?",
+    a: "Luxury residential residences take approximately 8–16 weeks depending on scale and bespoke custom joinery. Commercial suites typically take 6–10 weeks.",
   },
 ];
 
 export const designProcess = [
   {
-    step: 1,
-    title: "Consultation",
-    subtitle: "Understanding Your Vision",
+    step: "01",
+    title: "Discovery & Spatial Audit",
+    subtitle: "Understanding Life & Form",
     description:
-      "We begin with an in-depth conversation to understand your lifestyle, preferences, budget, and aspirations for the space.",
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
+      "We analyze your lifestyle, spatial flow, natural light orientation, and aesthetic aspirations during detailed studio sessions.",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
   },
   {
-    step: 2,
-    title: "Concept Design",
-    subtitle: "Bringing Ideas to Life",
+    step: "02",
+    title: "3D Architectural Renderings",
+    subtitle: "Precision Visual Engineering",
     description:
-      "Our team creates mood boards, 3D renderings, and detailed design concepts that translate your vision into tangible plans.",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+      "We generate photorealistic 3D spatial models, lighting simulations, and material tactile pairings for your review.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
   },
   {
-    step: 3,
-    title: "Design Development",
-    subtitle: "Perfecting Every Detail",
+    step: "03",
+    title: "Material & Craft Curation",
+    subtitle: "Sourcing Excellence",
     description:
-      "We refine the selected concept, finalizing material selections, furniture specifications, lighting plans, and color palettes.",
-    image:
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80",
+      "We hand-select Italian marbles, European white oak, bespoke bronze fittings, and custom textiles from world-class artisans.",
+    image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80",
   },
   {
-    step: 4,
-    title: "Execution",
-    subtitle: "Crafting Your Space",
+    step: "04",
+    title: "Turnkey Precision Execution",
+    subtitle: "Bringing Form to Life",
     description:
-      "Our skilled team brings the design to life with precision craftsmanship, quality materials, and meticulous project management.",
-    image:
-      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80",
+      "Our master craftsmen and structural engineers execute the project under strict quality control and white-glove project management.",
+    image: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80",
   },
   {
-    step: 5,
-    title: "Reveal",
-    subtitle: "The Grand Unveiling",
+    step: "05",
+    title: "The Unveiling Handover",
+    subtitle: "Your Sanctuary Revealed",
     description:
-      "We conduct a final walkthrough with you, ensuring every detail meets our exacting standards and your complete satisfaction.",
-    image:
-      "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=600&q=80",
+      "A curated walkthrough of your completed sanctuary, fully furnished, styled, cleaned, and presented with complete warranties.",
+    image: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=600&q=80",
   },
 ];
 
 export const whyChooseUs = [
   {
-    title: "Bespoke Design",
-    description:
-      "Every project is uniquely crafted to reflect your personality and lifestyle—no templates, no repetition.",
+    title: "Custom Spatial Layouts",
+    description: "Every architectural plan is sculpted specifically for your lifestyle and space flow—never repeated.",
     icon: "sparkles",
   },
   {
-    title: "Premium Materials",
-    description:
-      "We source only the finest materials, finishes, and furnishings to ensure enduring quality and timeless elegance.",
+    title: "Rare Global Materials",
+    description: "Direct relationship with Italian marble quarries and European timber mills for unmatched material authenticity.",
     icon: "gem",
   },
   {
-    title: "Expert Team",
-    description:
-      "Our experienced architects, interior designers, and craftsmen bring decades of collective expertise to every project.",
+    title: "Architectural Precision",
+    description: "Our team of licensed architects and interior strategists bring over 14 years of combined luxury mastery.",
     icon: "users",
   },
   {
-    title: "On-Time Delivery",
-    description:
-      "We respect your time with strict project timelines and transparent communication throughout the process.",
+    title: "Guaranteed Turnkey Timeline",
+    description: "Strict milestone tracking with financial completion guarantees and transparent progress dashboards.",
     icon: "clock",
   },
   {
-    title: "End-to-End Service",
-    description:
-      "From initial consultation to final handover, we manage every aspect so you can enjoy a hassle-free experience.",
+    title: "Structural & Finishes Warranty",
+    description: "Comprehensive multi-year warranty covering joinery, structural stability, hardware, and surface treatments.",
     icon: "shield",
   },
   {
-    title: "Client Satisfaction",
-    description:
-      "Our reputation is built on glowing client testimonials and long-term relationships across Jaipur & Rajasthan.",
+    title: "Uncompromising Finish Quality",
+    description: "Obsessive attention to micro-junctions, shadow gaps, flush doors, and hidden architectural lighting.",
     icon: "heart",
   },
 ];
@@ -352,3 +435,4 @@ export const teamMembers = [
     bio: "Curates color palettes, textures, and furnishings to create cohesive, stunning interiors.",
   },
 ];
+

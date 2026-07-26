@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}";
+self.__REACT_LOADABLE_MANIFEST="{\"components\\\\SmoothScrollWrapper.tsx -> lenis\":{\"id\":\"components\\\\SmoothScrollWrapper.tsx -> lenis\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_lenis_dist_lenis_mjs.js\"]}}"
