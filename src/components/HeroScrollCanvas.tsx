@@ -67,6 +67,8 @@ export default function HeroScrollCanvas() {
       canvas.height = Math.floor(dh * dpr);
     }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
     const imgAspect = img.naturalWidth / img.naturalHeight;
     const canAspect = dw / dh;
     let sx = 0, sy = 0, sw = img.naturalWidth, sh = img.naturalHeight;
