@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
-const TOTAL_FRAMES = 179;
+const TOTAL_FRAMES = 180;
 const FRAME_PATH = "/Hero-Sequence/ezgif-frame-";
 const BATCH_SIZE = 30;
 const SCROLL_HEIGHT = 500;
@@ -35,7 +35,7 @@ export default function HeroScrollCanvas() {
           resolve();
         };
         img.onerror = () => resolve();
-        img.src = `${FRAME_PATH}${padFrame(index + 1)}.png`;
+        img.src = `${FRAME_PATH}${padFrame(index + 1)}.webp`;
       }),
     []
   );
@@ -141,32 +141,38 @@ export default function HeroScrollCanvas() {
   /* ─── Compute overlay values ─── */
   const p = scrollProgress;
 
-  const textOpacity = p < 0.02 ? 0 : p < 0.07 ? (p - 0.02) / 0.05 : p < 0.36 ? 1 : p < 0.43 ? 1 - (p - 0.36) / 0.07 : 0;
-  const textY = p < 0.08 ? 100 - (p / 0.08) * 100 : p < 0.36 ? 0 : -40 * Math.min(1, (p - 0.36) / 0.07);
-  const textRotateX = p < 0.08 ? 15 - (p / 0.08) * 15 : p < 0.36 ? 0 : -8 * Math.min(1, (p - 0.36) / 0.07);
-  const textScale = p < 0.08 ? 0.85 + (p / 0.08) * 0.15 : p < 0.36 ? 1 : 1 + Math.min(0.06, (p - 0.36) / 0.07 * 0.06);
+  /* Phase 1: Main Title ("Designing Spaces That Inspire") */
+  const textOpacity = p < 0.02 ? 0 : p < 0.07 ? (p - 0.02) / 0.05 : p < 0.32 ? 1 : p < 0.40 ? 1 - (p - 0.32) / 0.08 : 0;
+  const textY = p < 0.08 ? 100 - (p / 0.08) * 100 : p < 0.32 ? 0 : -40 * Math.min(1, (p - 0.32) / 0.08);
+  const textRotateX = p < 0.08 ? 15 - (p / 0.08) * 15 : p < 0.32 ? 0 : -8 * Math.min(1, (p - 0.32) / 0.08);
+  const textScale = p < 0.08 ? 0.85 + (p / 0.08) * 0.15 : p < 0.32 ? 1 : 1 + Math.min(0.06, (p - 0.32) / 0.08 * 0.06);
 
-  const subOpacity = p < 0.07 ? 0 : p < 0.15 ? (p - 0.07) / 0.08 : p < 0.36 ? 1 : p < 0.43 ? 1 - (p - 0.36) / 0.07 : 0;
+  const subOpacity = p < 0.07 ? 0 : p < 0.15 ? (p - 0.07) / 0.08 : p < 0.32 ? 1 : p < 0.40 ? 1 - (p - 0.32) / 0.08 : 0;
   const subY = p < 0.07 ? 60 : p < 0.15 ? 60 - ((p - 0.07) / 0.08) * 60 : 0;
 
-  const btnOpacity = p < 0.15 ? 0 : p < 0.23 ? (p - 0.15) / 0.08 : p < 0.36 ? 1 : p < 0.43 ? 1 - (p - 0.36) / 0.07 : 0;
+  const btnOpacity = p < 0.15 ? 0 : p < 0.23 ? (p - 0.15) / 0.08 : p < 0.32 ? 1 : p < 0.40 ? 1 - (p - 0.32) / 0.08 : 0;
   const btnY = p < 0.15 ? 40 : p < 0.23 ? 40 - ((p - 0.15) / 0.08) * 40 : 0;
 
   const scrollHintOpacity = p < 0.015 ? 1 : p < 0.07 ? 1 - (p - 0.015) / 0.055 : 0;
-
   const lineWidth = p < 0.07 ? 0 : p < 0.17 ? ((p - 0.07) / 0.1) * 120 : 120;
 
-  const tagOpacity = p < 0.45 ? 0 : p < 0.53 ? (p - 0.45) / 0.08 : p < 0.64 ? 1 : p < 0.73 ? 1 - (p - 0.64) / 0.09 : 0;
-  const tagY = p < 0.45 ? 70 : p < 0.55 ? 70 - ((p - 0.45) / 0.1) * 70 : 0;
-  const tagScale = p < 0.45 ? 0.85 : p < 0.55 ? 0.85 + ((p - 0.45) / 0.1) * 0.15 : 1;
-  const tagRotateZ = p < 0.45 ? -3 : p < 0.55 ? -3 + ((p - 0.45) / 0.1) * 3 : 0;
+  /* Phase 2: Mid Tagline ("Crafted with Passion & Precision") */
+  const tagOpacity = p < 0.38 ? 0 : p < 0.46 ? (p - 0.38) / 0.08 : p < 0.58 ? 1 : p < 0.65 ? 1 - (p - 0.58) / 0.07 : 0;
+  const tagY = p < 0.38 ? 70 : p < 0.48 ? 70 - ((p - 0.38) / 0.1) * 70 : p < 0.58 ? 0 : -40 * ((p - 0.58) / 0.07);
+  const tagScale = p < 0.38 ? 0.85 : p < 0.48 ? 0.85 + ((p - 0.38) / 0.1) * 0.15 : 1;
+  const tagRotateZ = p < 0.38 ? -3 : p < 0.48 ? -3 + ((p - 0.38) / 0.1) * 3 : 0;
 
-  const endOpacity = p < 0.77 ? 0 : p < 0.85 ? (p - 0.77) / 0.08 : p < 0.91 ? 1 : p < 0.97 ? 1 : 1;
-  const endY = p < 0.77 ? 80 : p < 0.85 ? 80 - ((p - 0.77) / 0.08) * 80 : 0;
-  const endScale = p < 0.77 ? 0.8 : p < 0.87 ? 0.8 + ((p - 0.77) / 0.1) * 0.2 : 1;
+  /* Phase 3: Background Opening Cover (Matching last frame background color #0C0B0A) */
+  const coverBgOpacity = p < 0.58 ? 0 : p < 0.70 ? (p - 0.58) / 0.12 : 1;
+  const coverClipRadius = p < 0.58 ? 0 : Math.min(150, ((p - 0.58) / 0.12) * 150);
 
-  const cornerOpacity = p < 0.08 ? 0 : p < 0.14 ? (p - 0.08) / 0.06 : p < 0.36 ? 0.7 : p < 0.43 ? 0.7 * (1 - (p - 0.36) / 0.07) : 0;
-  const cornerEndOpacity = p < 0.8 ? 0 : p < 0.88 ? (p - 0.8) / 0.08 : 0.7;
+  /* Phase 3: Stencil Text & End CTA ("CENTURIO" outline revealing last frame 180) */
+  const endOpacity = p < 0.68 ? 0 : p < 0.78 ? (p - 0.68) / 0.10 : 1;
+  const endY = p < 0.68 ? 70 : p < 0.78 ? 70 - ((p - 0.68) / 0.10) * 70 : 0;
+  const endScale = p < 0.68 ? 0.85 : p < 0.78 ? 0.85 + ((p - 0.68) / 0.10) * 0.15 : 1;
+
+  const cornerOpacity = p < 0.08 ? 0 : p < 0.14 ? (p - 0.08) / 0.06 : p < 0.32 ? 0.7 : p < 0.40 ? 0.7 * (1 - (p - 0.32) / 0.08) : 0;
+  const cornerEndOpacity = p < 0.72 ? 0 : p < 0.80 ? (p - 0.72) / 0.08 : 0.7;
 
   const canvasOpacity = 1;
 
@@ -176,7 +182,7 @@ export default function HeroScrollCanvas() {
   return (
     <>
       <div
-        className="fixed inset-0 bg-charcoal"
+        className="fixed inset-0 bg-charcoal overflow-hidden"
         style={{
           willChange: "transform",
           zIndex: isHolding ? 0 : 40,
@@ -206,14 +212,24 @@ export default function HeroScrollCanvas() {
             )}
           </AnimatePresence>
 
-          {/* Canvas */}
+          {/* Frame Sequence Canvas */}
           <canvas ref={canvasRef} className="absolute inset-0 w-full h-full"
             style={{ imageRendering: "auto", opacity: canvasOpacity, transition: "opacity 0.4s ease" }} />
 
           {/* Heavy Vignette */}
-          <div className="absolute inset-0 pointer-events-none" style={{
-            background: "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0.8) 100%)"
+          <div className="absolute inset-0 pointer-events-none z-10" style={{
+            background: "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0.85) 100%)"
           }} />
+
+          {/* ═══ Smooth Background Cover (Matching last frame color #0C0B0A, opening after Passion & Precision) ═══ */}
+          <div
+            className="absolute inset-0 pointer-events-none z-20 transition-all ease-out"
+            style={{
+              backgroundColor: "#0C0B0A",
+              opacity: coverBgOpacity,
+              clipPath: `circle(${coverClipRadius}% at 50% 50%)`,
+            }}
+          />
 
           {/* Gold Progress Bar */}
           <div className="absolute top-0 left-0 right-0 h-[3px] z-50 bg-white/5">
@@ -368,42 +384,57 @@ export default function HeroScrollCanvas() {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════ */}
-          {/* PHASE 3: END CTA — Dramatic Reveal with Glass Card          */}
+          {/* PHASE 3: END REVEAL — BOLD OUTLINED "CENTURIO" REVEALING FRAME 180 */}
           {/* ═══════════════════════════════════════════════════════════════ */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{
             zIndex: 45,
             opacity: endOpacity,
             transform: `translateY(${endY}px) scale(${endScale})`,
           }}>
-            <div className="text-center px-4 max-w-3xl">
+            <div className="text-center px-4 max-w-5xl">
+
               {/* Overline */}
-              <div className="inline-flex items-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-3 mb-4">
                 <div className="w-10 h-[1px] bg-gold" />
-                <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-poppins font-medium">Jaipur, Rajasthan</span>
+                <span className="text-gold text-[10px] sm:text-xs tracking-[0.5em] uppercase font-poppins font-semibold">Luxury Architectural &amp; Interiors</span>
                 <div className="w-10 h-[1px] bg-gold" />
               </div>
 
-              {/* Title */}
-              <h2 className="font-playfair text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6.5rem] text-white leading-[1] mb-4"
+              {/* BOLD OUTLINE WORD "CENTURIO" WITH FRAME 180 REVEALED INSIDE */}
+              <h1
+                className="font-playfair font-black text-[3.6rem] sm:text-7xl md:text-8xl lg:text-[9.5rem] xl:text-[11.5rem] tracking-tight uppercase leading-none select-none my-2 transition-all duration-300"
                 style={{
-                  transform: "perspective(1000px) rotateX(3deg)",
-                  textShadow: "0 0 80px rgba(200,169,106,0.4), 0 10px 50px rgba(0,0,0,0.6), 0 2px 0 rgba(200,169,106,0.15)",
-                }}>
-                <span className="block font-light" style={{ transform: "translateZ(30px)" }}>Your Vision,</span>
-                <span className="gold-text block mt-2 italic font-bold" style={{ transform: "translateZ(60px)", fontSize: "1.1em" }}>Our Creation.</span>
-              </h2>
+                  backgroundImage: "url('/Hero-Sequence/ezgif-frame-180.webp')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  WebkitTextStroke: "2.5px #C8A96A",
+                  filter: "drop-shadow(0 0 45px rgba(200,169,106,0.45)) drop-shadow(0 15px 35px rgba(0,0,0,0.9))",
+                }}
+              >
+                CENTURIO
+              </h1>
+
+              {/* Sub-headline */}
+              <div className="mt-2 mb-6">
+                <span className="text-gray-200 text-xs sm:text-sm md:text-base tracking-[0.45em] uppercase font-poppins font-light">
+                  INTERIOR DESIGNS &bull; <span className="text-gold font-medium">JAIPUR</span>
+                </span>
+              </div>
 
               {/* Glass description panel */}
-              <div className="inline-block backdrop-blur-lg bg-white/5 rounded-2xl px-8 py-4 border border-white/10 mt-4 mb-10">
-                <p className="text-gray-300 text-sm md:text-base font-poppins font-light tracking-wide max-w-md mx-auto leading-relaxed">
-                  Transform your space with <span className="text-gold font-medium">CENTURIO DESIGNS</span> — where every detail speaks luxury.
+              <div className="inline-block backdrop-blur-md bg-white/5 rounded-2xl px-8 py-3.5 border border-white/10 mb-8">
+                <p className="text-gray-300 text-xs sm:text-sm md:text-base font-poppins font-light tracking-wide max-w-lg mx-auto leading-relaxed">
+                  Your Vision, Our Creation. Where every space radiates unmatched luxury and elegance.
                 </p>
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pointer-events-auto">
                 <Link href="/contact"
-                  className="group relative px-12 py-5 rounded-full text-xs font-poppins font-bold tracking-[0.25em] uppercase overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-gold/40"
+                  className="group relative px-12 py-4.5 rounded-full text-xs font-poppins font-bold tracking-[0.25em] uppercase overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-gold/40"
                   style={{
                     background: "linear-gradient(135deg, #C8A96A 0%, #E8D3A7 40%, #9E7B3B 100%)",
                     color: "#fff",
@@ -414,9 +445,9 @@ export default function HeroScrollCanvas() {
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </span>
                 </Link>
-                <Link href="/about"
-                  className="px-12 py-5 rounded-full text-xs font-poppins font-medium tracking-[0.25em] uppercase border border-white/25 text-white/90 hover:border-gold hover:text-gold hover:shadow-lg hover:shadow-gold/20 transition-all duration-500 backdrop-blur-sm bg-white/5">
-                  About Us
+                <Link href="/portfolio"
+                  className="px-12 py-4.5 rounded-full text-xs font-poppins font-medium tracking-[0.25em] uppercase border border-white/25 text-white/90 hover:border-gold hover:text-gold hover:shadow-lg hover:shadow-gold/20 transition-all duration-500 backdrop-blur-sm bg-white/5">
+                  View Portfolio
                 </Link>
               </div>
             </div>
