@@ -163,13 +163,31 @@ export default function HeroScrollCanvas() {
   const tagRotateZ = p < 0.38 ? -3 : p < 0.48 ? -3 + ((p - 0.38) / 0.1) * 3 : 0;
 
   /* Phase 3: Background Opening Cover (Matching last frame background color #0C0B0A) */
-  const coverBgOpacity = p < 0.58 ? 0 : p < 0.70 ? (p - 0.58) / 0.12 : 1;
-  const coverClipRadius = p < 0.58 ? 0 : Math.min(150, ((p - 0.58) / 0.12) * 150);
+  const coverBgOpacity = p < 0.58 ? 0 : p < 0.68 ? (p - 0.58) / 0.10 : 1;
+  const coverClipRadius = p < 0.58 ? 0 : Math.min(150, ((p - 0.58) / 0.10) * 150);
 
-  /* Phase 3: Stencil Text & End CTA ("CENTURIO" outline revealing last frame 180) */
-  const endOpacity = p < 0.68 ? 0 : p < 0.78 ? (p - 0.68) / 0.10 : 1;
-  const endY = p < 0.68 ? 70 : p < 0.78 ? 70 - ((p - 0.68) / 0.10) * 70 : 0;
-  const endScale = p < 0.68 ? 0.85 : p < 0.78 ? 0.85 + ((p - 0.68) / 0.10) * 0.15 : 1;
+  /* Phase 3 Staggered Element Reveals (unveils sequentially on scroll) */
+  // 1. Overline Badge ("LUXURY ARCHITECTURAL & INTERIORS")
+  const badgeOpacity = p < 0.64 ? 0 : p < 0.71 ? (p - 0.64) / 0.07 : 1;
+  const badgeY = p < 0.64 ? 40 : p < 0.71 ? 40 - ((p - 0.64) / 0.07) * 40 : 0;
+
+  // 2. CENTURIO Stencil Title
+  const stencilOpacity = p < 0.69 ? 0 : p < 0.77 ? (p - 0.69) / 0.08 : 1;
+  const stencilY = p < 0.69 ? 50 : p < 0.77 ? 50 - ((p - 0.69) / 0.08) * 50 : 0;
+  const stencilScale = p < 0.69 ? 0.85 : p < 0.77 ? 0.85 + ((p - 0.69) / 0.08) * 0.15 : 1;
+
+  // 3. Sub-headline ("INTERIOR DESIGNS • JAIPUR")
+  const subTagOpacity = p < 0.76 ? 0 : p < 0.83 ? (p - 0.76) / 0.07 : 1;
+  const subTagY = p < 0.76 ? 35 : p < 0.83 ? 35 - ((p - 0.76) / 0.07) * 35 : 0;
+
+  // 4. Glass Description Panel ("Your Vision, Our Creation...")
+  const descOpacity = p < 0.81 ? 0 : p < 0.88 ? (p - 0.81) / 0.07 : 1;
+  const descY = p < 0.81 ? 30 : p < 0.88 ? 30 - ((p - 0.81) / 0.07) * 30 : 0;
+
+  // 5. CTA Buttons (Enlarged & Prominent)
+  const buttonsOpacity = p < 0.86 ? 0 : p < 0.94 ? (p - 0.86) / 0.08 : 1;
+  const buttonsY = p < 0.86 ? 40 : p < 0.94 ? 40 - ((p - 0.86) / 0.08) * 40 : 0;
+  const buttonsScale = p < 0.86 ? 0.9 : p < 0.94 ? 0.9 + ((p - 0.86) / 0.08) * 0.1 : 1;
 
   const cornerOpacity = p < 0.08 ? 0 : p < 0.14 ? (p - 0.08) / 0.06 : p < 0.32 ? 0.7 : p < 0.40 ? 0.7 * (1 - (p - 0.32) / 0.08) : 0;
   const cornerEndOpacity = p < 0.72 ? 0 : p < 0.80 ? (p - 0.72) / 0.08 : 0.7;
@@ -363,17 +381,16 @@ export default function HeroScrollCanvas() {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════ */}
-          {/* PHASE 3: END REVEAL — DYNAMIC ANIMATED STENCIL "CENTURIO" & LUXURY CTAs */}
+          {/* PHASE 3: END REVEAL — SCROLL-STAGGERED REVEALS & ULTRA-PROMINENT CTAS */}
           {/* ═══════════════════════════════════════════════════════════════ */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{
-            zIndex: 45,
-            opacity: endOpacity,
-            transform: `translateY(${endY}px) scale(${endScale})`,
-          }}>
+          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{ zIndex: 45 }}>
             <div className="text-center px-4 max-w-5xl">
 
-              {/* Overline Badge */}
-              <div className="inline-flex items-center gap-3 mb-3">
+              {/* 1. Overline Badge */}
+              <div
+                className="inline-flex items-center gap-3 mb-2 transition-all duration-300"
+                style={{ opacity: badgeOpacity, transform: `translateY(${badgeY}px)` }}
+              >
                 <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-gold" />
                 <span className="text-gold text-[10px] sm:text-xs tracking-[0.6em] uppercase font-poppins font-semibold">
                   LUXURY ARCHITECTURAL &amp; INTERIORS
@@ -381,8 +398,14 @@ export default function HeroScrollCanvas() {
                 <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-gold" />
               </div>
 
-              {/* DYNAMIC STENCIL WORD "CENTURIO" WITH PARALLAX FRAME 180 REVEAL */}
-              <div className="relative my-2 inline-block">
+              {/* 2. DYNAMIC STENCIL WORD "CENTURIO" WITH PARALLAX FRAME 180 REVEAL */}
+              <div
+                className="relative my-2 inline-block transition-all duration-300"
+                style={{
+                  opacity: stencilOpacity,
+                  transform: `translateY(${stencilY}px) scale(${stencilScale})`,
+                }}
+              >
                 <h1
                   className="font-playfair font-black text-[3.8rem] sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12.5rem] tracking-tight uppercase leading-none select-none transition-all duration-500"
                   style={{
@@ -402,45 +425,65 @@ export default function HeroScrollCanvas() {
                 <div className="absolute -inset-2 pointer-events-none rounded-2xl border border-gold/20 opacity-40 blur-[1px]" />
               </div>
 
-              {/* Sub-headline Location */}
-              <div className="mt-1 mb-5">
+              {/* 3. Sub-headline Location */}
+              <div
+                className="mt-1 mb-5 transition-all duration-300"
+                style={{ opacity: subTagOpacity, transform: `translateY(${subTagY}px)` }}
+              >
                 <span className="text-gray-300 text-xs sm:text-sm md:text-base tracking-[0.5em] uppercase font-poppins font-light">
                   INTERIOR DESIGNS &bull; <span className="text-gold font-medium">JAIPUR</span>
                 </span>
               </div>
 
-              {/* Glass description panel */}
-              <div className="inline-block backdrop-blur-md bg-black/40 rounded-2xl px-8 py-4 border border-gold/20 mb-8 shadow-2xl">
+              {/* 4. Glass Description Panel */}
+              <div
+                className="inline-block backdrop-blur-md bg-black/40 rounded-2xl px-8 py-4 border border-gold/20 mb-8 shadow-2xl transition-all duration-300"
+                style={{ opacity: descOpacity, transform: `translateY(${descY}px)` }}
+              >
                 <p className="text-gray-200 text-xs sm:text-sm md:text-base font-poppins font-light tracking-wide max-w-xl mx-auto leading-relaxed">
                   Your Vision, Our Creation. Where every space radiates unmatched <span className="text-gold font-medium">luxury and elegance</span>.
                 </p>
               </div>
 
-              {/* ATTRACTIVE LUXURY INTERIOR DESIGNER CTA BUTTONS */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-7 pointer-events-auto">
+              {/* 5. ATTRACTIVE & ENLARGED LUXURY CTA BUTTONS */}
+              <div
+                className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 pointer-events-auto mt-2 transition-all duration-300"
+                style={{
+                  opacity: buttonsOpacity,
+                  transform: `translateY(${buttonsY}px) scale(${buttonsScale})`,
+                }}
+              >
+                {/* Primary CTA: START YOUR PROJECT -> */}
                 <Link href="/contact"
-                  className="group relative px-10 py-4.5 rounded-full text-xs font-poppins font-bold tracking-[0.25em] uppercase overflow-hidden transition-all duration-500 hover:scale-[1.03] active:scale-95 shadow-2xl hover:shadow-gold/50"
+                  className="group relative px-12 py-5 sm:px-14 sm:py-5.5 rounded-full text-xs sm:text-sm md:text-base font-poppins font-bold tracking-[0.25em] uppercase overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 border border-gold/40"
                   style={{
-                    background: "linear-gradient(135deg, #C8A96A 0%, #F5E5C4 45%, #9E7B3B 100%)",
-                    color: "#0F0E0C",
-                    boxShadow: "0 0 40px rgba(200,169,106,0.45), inset 0 1px 0 rgba(255,255,255,0.4)",
+                    background: "linear-gradient(135deg, #D4AF37 0%, #FFF3D6 45%, #AA7C11 100%)",
+                    color: "#0C0B0A",
+                    boxShadow: "0 0 50px rgba(200,169,106,0.55), inset 0 2px 0 rgba(255,255,255,0.6)",
                   }}>
-                  {/* Light shine sweep effect */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-                  <span className="relative z-10 flex items-center gap-3">
+                  {/* Animated Light Sweep Line */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+                  <span className="relative z-10 flex items-center gap-3 drop-shadow-sm">
                     Start Your Project
-                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5 text-[#0F0E0C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2 text-[#0C0B0A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
                 </Link>
 
+                {/* Secondary CTA: VIEW PORTFOLIO */}
                 <Link href="/portfolio"
-                  className="group relative px-10 py-4.5 rounded-full text-xs font-poppins font-semibold tracking-[0.25em] uppercase border border-gold/40 text-white hover:border-gold hover:text-gold hover:scale-[1.03] active:scale-95 transition-all duration-500 backdrop-blur-md bg-black/40 shadow-xl hover:shadow-gold/20 overflow-hidden">
-                  <span className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="relative z-10">View Portfolio</span>
+                  className="group relative px-12 py-5 sm:px-14 sm:py-5.5 rounded-full text-xs sm:text-sm md:text-base font-poppins font-bold tracking-[0.25em] uppercase border-2 border-gold/50 text-white hover:border-gold hover:text-gold hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md bg-black/60 shadow-2xl hover:shadow-gold/30 overflow-hidden">
+                  <span className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    View Portfolio
+                    <svg className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </Link>
               </div>
+
             </div>
           </div>
 
