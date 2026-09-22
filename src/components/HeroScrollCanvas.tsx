@@ -277,7 +277,7 @@ export default function HeroScrollCanvas() {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════ */}
-          {/* PHASE 1: MAIN TITLE — 3D Rotating Reveal with Glass Panel  */}
+          {/* PHASE 1: MAIN TITLE — Clean & Dramatic Intro (No Buttons)  */}
           {/* ═══════════════════════════════════════════════════════════════ */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{ zIndex: 45 }}>
 
@@ -288,7 +288,7 @@ export default function HeroScrollCanvas() {
             {/* Overline */}
             <div style={{ opacity: subOpacity, transform: `translateY(${subY}px)` }}
               className="text-center px-4 mb-4">
-              <span className="inline-block px-5 py-2 border border-gold/30 rounded-full text-gold text-[10px] sm:text-xs tracking-[0.4em] uppercase font-poppins backdrop-blur-sm bg-white/5">
+              <span className="inline-block px-5 py-2 border border-gold/40 rounded-full text-gold text-[10px] sm:text-xs tracking-[0.45em] uppercase font-poppins backdrop-blur-md bg-black/40 shadow-lg shadow-black/50">
                 <span className="inline-block w-1.5 h-1.5 bg-gold rounded-full mr-3 animate-pulse" />
                 Premium Interior Design Studio
               </span>
@@ -303,45 +303,24 @@ export default function HeroScrollCanvas() {
               }}>
               <h1 className="font-playfair text-[2.8rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7.5rem] text-white leading-[0.95] tracking-tight"
                 style={{
-                  textShadow: "0 0 80px rgba(200,169,106,0.3), 0 4px 30px rgba(0,0,0,0.6), 0 0 120px rgba(200,169,106,0.15)",
-                  WebkitTextStroke: "0.5px rgba(255,255,255,0.1)",
+                  textShadow: "0 0 80px rgba(200,169,106,0.4), 0 4px 30px rgba(0,0,0,0.8), 0 0 120px rgba(200,169,106,0.2)",
+                  WebkitTextStroke: "0.5px rgba(255,255,255,0.15)",
                 }}>
                 <span className="block" style={{ transform: "translateZ(40px)" }}>Designing</span>
                 <span className="block" style={{ transform: "translateZ(60px)" }}>Spaces</span>
-                <span className="gold-text block mt-2 italic" style={{ transform: "translateZ(80px)", fontSize: "1.05em" }}>That Inspire.</span>
+                <span className="gold-text block mt-2 italic font-bold" style={{ transform: "translateZ(80px)", fontSize: "1.05em" }}>That Inspire.</span>
               </h1>
             </div>
 
             {/* Subtitle */}
             <div className="text-center px-4 mt-8"
               style={{ opacity: subOpacity, transform: `translateY(${subY}px)` }}>
-              <div className="inline-block backdrop-blur-md bg-black/30 rounded-2xl px-8 py-4 border border-white/10">
+              <div className="inline-block backdrop-blur-md bg-black/40 rounded-2xl px-8 py-4 border border-gold/20 shadow-xl">
                 <p className="text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl font-poppins font-light tracking-wider leading-relaxed max-w-2xl">
                   Premium Interior Design &amp; Architectural Solutions in
                   <span className="text-gold font-medium"> Jaipur</span>
                 </p>
               </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-10 pointer-events-auto"
-              style={{ opacity: btnOpacity, transform: `translateY(${btnY}px)` }}>
-              <Link href="/contact"
-                className="group relative px-10 py-4.5 rounded-full text-xs font-poppins font-semibold tracking-[0.25em] uppercase overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-gold/40"
-                style={{
-                  background: "linear-gradient(135deg, #C8A96A 0%, #E8D3A7 40%, #9E7B3B 100%)",
-                  color: "#fff",
-                  boxShadow: "0 0 30px rgba(200,169,106,0.3), inset 0 1px 0 rgba(255,255,255,0.2)",
-                }}>
-                <span className="relative z-10 flex items-center gap-2">
-                  Get Free Consultation
-                  <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </span>
-              </Link>
-              <Link href="/portfolio"
-                className="group px-10 py-4.5 rounded-full text-xs font-poppins font-medium tracking-[0.25em] uppercase border border-white/25 text-white/90 hover:border-gold hover:text-gold hover:shadow-lg hover:shadow-gold/20 transition-all duration-500 backdrop-blur-sm bg-white/5">
-                View Portfolio
-              </Link>
             </div>
           </div>
 
@@ -355,9 +334,9 @@ export default function HeroScrollCanvas() {
           }}>
             <div className="text-center px-4">
               {/* Decorative badge */}
-              <div className="inline-flex items-center gap-3 mb-8 px-6 py-2.5 rounded-full border border-gold/25 backdrop-blur-sm bg-white/5">
+              <div className="inline-flex items-center gap-3 mb-8 px-6 py-2.5 rounded-full border border-gold/30 backdrop-blur-md bg-black/40">
                 <div className="w-8 h-[1px] bg-gold/60" />
-                <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-poppins">Since 2015</span>
+                <span className="text-gold text-[10px] tracking-[0.5em] uppercase font-poppins font-medium">Since 2015</span>
                 <div className="w-8 h-[1px] bg-gold/60" />
               </div>
 
@@ -384,7 +363,7 @@ export default function HeroScrollCanvas() {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════ */}
-          {/* PHASE 3: END REVEAL — BOLD OUTLINED "CENTURIO" REVEALING FRAME 180 */}
+          {/* PHASE 3: END REVEAL — DYNAMIC ANIMATED STENCIL "CENTURIO" & LUXURY CTAs */}
           {/* ═══════════════════════════════════════════════════════════════ */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{
             zIndex: 45,
@@ -393,61 +372,73 @@ export default function HeroScrollCanvas() {
           }}>
             <div className="text-center px-4 max-w-5xl">
 
-              {/* Overline */}
-              <div className="inline-flex items-center gap-3 mb-4">
-                <div className="w-10 h-[1px] bg-gold" />
-                <span className="text-gold text-[10px] sm:text-xs tracking-[0.5em] uppercase font-poppins font-semibold">Luxury Architectural &amp; Interiors</span>
-                <div className="w-10 h-[1px] bg-gold" />
+              {/* Overline Badge */}
+              <div className="inline-flex items-center gap-3 mb-3">
+                <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-gold" />
+                <span className="text-gold text-[10px] sm:text-xs tracking-[0.6em] uppercase font-poppins font-semibold">
+                  LUXURY ARCHITECTURAL &amp; INTERIORS
+                </span>
+                <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-gold" />
               </div>
 
-              {/* BOLD OUTLINE WORD "CENTURIO" WITH FRAME 180 REVEALED INSIDE */}
-              <h1
-                className="font-playfair font-black text-[3.6rem] sm:text-7xl md:text-8xl lg:text-[9.5rem] xl:text-[11.5rem] tracking-tight uppercase leading-none select-none my-2 transition-all duration-300"
-                style={{
-                  backgroundImage: "url('/Hero-Sequence/ezgif-frame-180.webp')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  color: "transparent",
-                  WebkitTextStroke: "2.5px #C8A96A",
-                  filter: "drop-shadow(0 0 45px rgba(200,169,106,0.45)) drop-shadow(0 15px 35px rgba(0,0,0,0.9))",
-                }}
-              >
-                CENTURIO
-              </h1>
+              {/* DYNAMIC STENCIL WORD "CENTURIO" WITH PARALLAX FRAME 180 REVEAL */}
+              <div className="relative my-2 inline-block">
+                <h1
+                  className="font-playfair font-black text-[3.8rem] sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12.5rem] tracking-tight uppercase leading-none select-none transition-all duration-500"
+                  style={{
+                    backgroundImage: "url('/Hero-Sequence/ezgif-frame-180.webp')",
+                    backgroundSize: "115% 115%",
+                    backgroundPosition: `center ${50 + (p - 0.7) * 60}%`,
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                    WebkitTextStroke: "2.5px #D4AF37",
+                    filter: "drop-shadow(0 0 50px rgba(200,169,106,0.5)) drop-shadow(0 20px 40px rgba(0,0,0,0.95))",
+                  }}
+                >
+                  CENTURIO
+                </h1>
+                {/* Subtle metallic gold shimmer bar */}
+                <div className="absolute -inset-2 pointer-events-none rounded-2xl border border-gold/20 opacity-40 blur-[1px]" />
+              </div>
 
-              {/* Sub-headline */}
-              <div className="mt-2 mb-6">
-                <span className="text-gray-200 text-xs sm:text-sm md:text-base tracking-[0.45em] uppercase font-poppins font-light">
+              {/* Sub-headline Location */}
+              <div className="mt-1 mb-5">
+                <span className="text-gray-300 text-xs sm:text-sm md:text-base tracking-[0.5em] uppercase font-poppins font-light">
                   INTERIOR DESIGNS &bull; <span className="text-gold font-medium">JAIPUR</span>
                 </span>
               </div>
 
               {/* Glass description panel */}
-              <div className="inline-block backdrop-blur-md bg-white/5 rounded-2xl px-8 py-3.5 border border-white/10 mb-8">
-                <p className="text-gray-300 text-xs sm:text-sm md:text-base font-poppins font-light tracking-wide max-w-lg mx-auto leading-relaxed">
-                  Your Vision, Our Creation. Where every space radiates unmatched luxury and elegance.
+              <div className="inline-block backdrop-blur-md bg-black/40 rounded-2xl px-8 py-4 border border-gold/20 mb-8 shadow-2xl">
+                <p className="text-gray-200 text-xs sm:text-sm md:text-base font-poppins font-light tracking-wide max-w-xl mx-auto leading-relaxed">
+                  Your Vision, Our Creation. Where every space radiates unmatched <span className="text-gold font-medium">luxury and elegance</span>.
                 </p>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pointer-events-auto">
+              {/* ATTRACTIVE LUXURY INTERIOR DESIGNER CTA BUTTONS */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-7 pointer-events-auto">
                 <Link href="/contact"
-                  className="group relative px-12 py-4.5 rounded-full text-xs font-poppins font-bold tracking-[0.25em] uppercase overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-gold/40"
+                  className="group relative px-10 py-4.5 rounded-full text-xs font-poppins font-bold tracking-[0.25em] uppercase overflow-hidden transition-all duration-500 hover:scale-[1.03] active:scale-95 shadow-2xl hover:shadow-gold/50"
                   style={{
-                    background: "linear-gradient(135deg, #C8A96A 0%, #E8D3A7 40%, #9E7B3B 100%)",
-                    color: "#fff",
-                    boxShadow: "0 0 40px rgba(200,169,106,0.4), inset 0 1px 0 rgba(255,255,255,0.25)",
+                    background: "linear-gradient(135deg, #C8A96A 0%, #F5E5C4 45%, #9E7B3B 100%)",
+                    color: "#0F0E0C",
+                    boxShadow: "0 0 40px rgba(200,169,106,0.45), inset 0 1px 0 rgba(255,255,255,0.4)",
                   }}>
-                  <span className="relative z-10 flex items-center gap-2">
+                  {/* Light shine sweep effect */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+                  <span className="relative z-10 flex items-center gap-3">
                     Start Your Project
-                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5 text-[#0F0E0C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </span>
                 </Link>
+
                 <Link href="/portfolio"
-                  className="px-12 py-4.5 rounded-full text-xs font-poppins font-medium tracking-[0.25em] uppercase border border-white/25 text-white/90 hover:border-gold hover:text-gold hover:shadow-lg hover:shadow-gold/20 transition-all duration-500 backdrop-blur-sm bg-white/5">
-                  View Portfolio
+                  className="group relative px-10 py-4.5 rounded-full text-xs font-poppins font-semibold tracking-[0.25em] uppercase border border-gold/40 text-white hover:border-gold hover:text-gold hover:scale-[1.03] active:scale-95 transition-all duration-500 backdrop-blur-md bg-black/40 shadow-xl hover:shadow-gold/20 overflow-hidden">
+                  <span className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="relative z-10">View Portfolio</span>
                 </Link>
               </div>
             </div>
