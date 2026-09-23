@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import NextImage from "next/image";
 
 const TOTAL_FRAMES = 180;
 const FRAME_PATH = "/Hero-Sequence/ezgif-frame-";
@@ -87,7 +88,47 @@ export default function HeroScrollCanvas() {
     }
   }, [drawToCanvas]);
 
-  /* ─── Scroll Progress ─── */
+  const targetProgressRef = useRef(0);
+  const currentProgressRef = useRef(0);
+  const renderedProgressRef = useRef(-1);
+
+  /* ─── RAF Lerp Animation Loop (Butter-Smooth 60fps) ─── */
+  useEffect(() => {
+    let animId: number;
+
+    const loop = () => {
+      // Smooth linear interpolation (lerp) towards target scroll position
+      const diff = targetProgressRef.current - currentProgressRef.current;
+      if (Math.abs(diff) > 0.0001) {
+        currentProgressRef.current += diff * 0.16;
+      } else {
+        currentProgressRef.current = targetProgressRef.current;
+      }
+
+      const p = currentProgressRef.current;
+      const frameNum = Math.min(TOTAL_FRAMES - 1, Math.max(0, Math.round(p * (TOTAL_FRAMES - 1))));
+
+      if (frameNum !== currentFrameRef.current) {
+        currentFrameRef.current = frameNum;
+        drawFrame(frameNum);
+      }
+
+      // Update React state only when progress changes meaningfully to prevent re-render bottlenecks
+      if (Math.abs(p - renderedProgressRef.current) > 0.0015) {
+        renderedProgressRef.current = p;
+        setScrollProgress(p);
+        setIsHolding(p >= 0.98);
+      }
+
+      animId = requestAnimationFrame(loop);
+    };
+
+    animId = requestAnimationFrame(loop);
+
+    return () => cancelAnimationFrame(animId);
+  }, [drawFrame]);
+
+  /* ─── Scroll Event Listener ─── */
   useEffect(() => {
     const getProgress = () => {
       const el = spacerRef.current;
@@ -102,28 +143,18 @@ export default function HeroScrollCanvas() {
     };
 
     const onScroll = () => {
-      const progress = getProgress();
-      setScrollProgress(progress);
-      const holding = progress >= 0.98;
-      setIsHolding(holding);
-      const frameNum = Math.round(progress * (TOTAL_FRAMES - 1));
-      const clamped = Math.max(0, Math.min(TOTAL_FRAMES - 1, frameNum));
-      if (clamped !== currentFrameRef.current) {
-        currentFrameRef.current = clamped;
-        cancelAnimationFrame(rafRef.current);
-        rafRef.current = requestAnimationFrame(() => drawFrame(clamped));
-      }
+      targetProgressRef.current = getProgress();
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
     onScroll();
+
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(rafRef.current);
     };
-  }, [drawFrame]);
+  }, []);
 
   useEffect(() => {
     if (!loaded) return;
@@ -135,6 +166,8 @@ export default function HeroScrollCanvas() {
     const totalScroll = elHeight - winH;
     const scrolled = window.scrollY - elTop;
     const progress = Math.max(0, Math.min(1, scrolled / totalScroll));
+    targetProgressRef.current = progress;
+    currentProgressRef.current = progress;
     const frameNum = Math.round(progress * (TOTAL_FRAMES - 1));
     currentFrameRef.current = frameNum;
     drawFrame(frameNum);
@@ -216,6 +249,15 @@ export default function HeroScrollCanvas() {
               <motion.div key="loader" initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8, ease: "easeInOut" }}
                 className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-white">
                 <div className="text-center">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gold/50 mx-auto mb-4 shadow-2xl">
+                    <NextImage
+                      src="/logo.png"
+                      alt="CENTURIO DESIGNS Emblem"
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h1 className="font-playfair text-5xl md:text-7xl text-charcoal mb-1 tracking-tight">
                     CENTURIO<span className="text-gold"> DESIGNS</span>
                   </h1>

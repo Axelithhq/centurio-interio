@@ -3,25 +3,35 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-const navLinks = [
-  { href: "#about", label: "Philosophy" },
-  { href: "#services", label: "Services" },
-  { href: "#portfolio", label: "Works" },
-  { href: "#process", label: "Process" },
-  { href: "#testimonials", label: "Clients" },
-  { href: "#contact", label: "Contact" },
+const navItems = [
+  { anchor: "#about", path: "/about", label: "Philosophy" },
+  { anchor: "#services", path: "/services", label: "Services" },
+  { anchor: "#portfolio", path: "/portfolio", label: "Portfolio" },
+  { anchor: "#inspector", path: "/#inspector", label: "360° Studio" },
+  { anchor: "#testimonials", path: "/testimonials", label: "Clients" },
+  { anchor: "#contact", path: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const getLinkHref = (item: (typeof navItems)[0]) => {
+    if (isHome) return item.anchor;
+    return item.path;
+  };
 
   return (
     <>
@@ -44,16 +54,23 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group pl-3 sm:pl-4 shrink-0"
+            className="flex items-center gap-3 group pl-3 sm:pl-4 shrink-0"
           >
-            <div className="w-8 h-8 rounded-full border border-gold/50 flex items-center justify-center font-playfair text-gold text-sm font-bold group-hover:bg-gold group-hover:text-charcoal transition-all duration-300">
-              C
+            <div className="relative w-9 h-9 rounded-full overflow-hidden border border-gold/40 shadow-md group-hover:border-gold group-hover:scale-105 transition-all duration-300">
+              <Image
+                src="/logo.png"
+                alt="CENTURIO DESIGNS Emblem Logo"
+                width={36}
+                height={36}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div className="hidden sm:block">
-              <span className="font-playfair text-base text-white tracking-wide block leading-none">
+              <span className="font-playfair text-base font-bold text-white tracking-wide block leading-none group-hover:text-gold transition-colors">
                 CENTURIO
               </span>
-              <span className="text-[7px] font-poppins tracking-[0.25em] text-gold/80 uppercase block mt-0.5">
+              <span className="text-[7.5px] font-poppins font-medium tracking-[0.28em] text-gold/90 uppercase block mt-0.5">
                 DESIGNS
               </span>
             </div>
@@ -64,25 +81,25 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden lg:flex items-center gap-0.5">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={getLinkHref(item)}
                 className="text-[10px] font-poppins tracking-widest text-gray-300 uppercase hover:text-gold transition-colors duration-300 px-3 py-2 rounded-full hover:bg-white/5"
               >
-                {link.label}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
 
           {/* CTA */}
           <div className="hidden md:flex items-center shrink-0">
-            <a
-              href="#contact"
+            <Link
+              href={isHome ? "#contact" : "/contact"}
               className="gold-bg text-white px-5 py-2.5 rounded-full text-[10px] font-poppins tracking-widest uppercase hover:shadow-lg hover:shadow-gold/30 hover:scale-105 transition-all duration-300"
             >
               Get Quote
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -119,27 +136,30 @@ export default function Navbar() {
           >
             <div className="bg-charcoal/98 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl shadow-black/40 overflow-hidden w-full max-w-sm pointer-events-auto">
               <div className="p-5 space-y-1">
-                {navLinks.map((link, i) => (
-                  <motion.a
-                    key={link.href}
-                    href={link.href}
+                {navItems.map((item, i) => (
+                  <motion.div
+                    key={item.label}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.04 }}
-                    onClick={() => setMobileOpen(false)}
-                    className="block py-3 px-4 text-sm font-poppins tracking-widest text-gray-300 hover:text-gold hover:bg-white/5 rounded-2xl uppercase transition-all"
                   >
-                    {link.label}
-                  </motion.a>
+                    <Link
+                      href={getLinkHref(item)}
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-3 px-4 text-sm font-poppins tracking-widest text-gray-300 hover:text-gold hover:bg-white/5 rounded-2xl uppercase transition-all"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
                 ))}
                 <div className="pt-2 px-4">
-                  <a
-                    href="#contact"
+                  <Link
+                    href={isHome ? "#contact" : "/contact"}
                     onClick={() => setMobileOpen(false)}
                     className="block w-full py-3.5 text-center gold-bg text-white text-xs font-poppins tracking-widest uppercase rounded-full"
                   >
                     Get Quote
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

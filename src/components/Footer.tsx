@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { businessInfo } from "@/lib/data";
 
 export default function Footer() {
@@ -18,8 +19,14 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-sm border border-gold/50 flex items-center justify-center font-serif-luxury text-gold font-bold">
-                C
+              <div className="relative w-9 h-9 rounded-full overflow-hidden border border-gold/40 shadow-md">
+                <Image
+                  src="/logo.png"
+                  alt="CENTURIO DESIGNS Emblem Logo"
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="font-serif-luxury text-2xl tracking-wider text-white">
                 CENTURIO

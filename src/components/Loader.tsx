@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function Loader() {
   const [loading, setLoading] = useState(true);
@@ -26,6 +27,15 @@ export default function Loader() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-center"
           >
+            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gold/50 mx-auto mb-5 shadow-2xl">
+              <Image
+                src="/logo.png"
+                alt="CENTURIO DESIGNS Emblem"
+                width={80}
+                height={80}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <h1 className="font-playfair text-4xl md:text-5xl text-charcoal mb-4">
               CENTURIO
               <span className="text-gold"> DESIGNS</span>

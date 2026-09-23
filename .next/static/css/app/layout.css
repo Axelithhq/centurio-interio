@@ -987,6 +987,9 @@ video {
 .h-2{
   height: 0.5rem;
 }
+.h-20{
+  height: 5rem;
+}
 .h-24{
   height: 6rem;
 }
@@ -1127,6 +1130,9 @@ video {
 }
 .w-2{
   width: 0.5rem;
+}
+.w-20{
+  width: 5rem;
 }
 .w-24{
   width: 6rem;
@@ -1412,9 +1418,6 @@ video {
 }
 .gap-2{
   gap: 0.5rem;
-}
-.gap-2\.5{
-  gap: 0.625rem;
 }
 .gap-3{
   gap: 0.75rem;
@@ -2082,8 +2085,8 @@ video {
 .text-\[3\.8rem\]{
   font-size: 3.8rem;
 }
-.text-\[7px\]{
-  font-size: 7px;
+.text-\[7\.5px\]{
+  font-size: 7.5px;
 }
 .text-\[8px\]{
   font-size: 8px;
@@ -2154,6 +2157,9 @@ video {
 .tracking-\[0\.25em\]{
   letter-spacing: 0.25em;
 }
+.tracking-\[0\.28em\]{
+  letter-spacing: 0.28em;
+}
 .tracking-\[0\.2em\]{
   letter-spacing: 0.2em;
 }
@@ -2217,6 +2223,9 @@ video {
 }
 .text-gold\/80{
   color: rgb(200 169 106 / 0.8);
+}
+.text-gold\/90{
+  color: rgb(200 169 106 / 0.9);
 }
 .text-gray-200{
   --tw-text-opacity: 1;
@@ -3182,6 +3191,10 @@ h1, h2, h3, h4, .font-serif-luxury {
   --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.group:hover .group-hover\:border-gold{
+  --tw-border-opacity: 1;
+  border-color: rgb(200 169 106 / var(--tw-border-opacity, 1));
+}
 .group:hover .group-hover\:border-gold\/25{
   border-color: rgb(200 169 106 / 0.25);
 }
@@ -3199,10 +3212,6 @@ h1, h2, h3, h4, .font-serif-luxury {
   --tw-gradient-from: rgb(26 26 26 / 0.95) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(26 26 26 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-.group:hover .group-hover\:text-charcoal{
-  --tw-text-opacity: 1;
-  color: rgb(26 26 26 / var(--tw-text-opacity, 1));
 }
 .group:hover .group-hover\:text-gold{
   --tw-text-opacity: 1;

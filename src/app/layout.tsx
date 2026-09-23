@@ -8,12 +8,20 @@ export const metadata: Metadata = {
     "Award-winning luxury interior design & architecture studio crafting ultra-modern residential residences and prestigious commercial environments.",
   keywords:
     "luxury interior design, architecture studio, modern architecture, 3D interior rendering, Jaipur, Rajasthan, bespoke furniture, TURNKEY luxury",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png" }],
+  },
   openGraph: {
     title: "CENTURIO INTERIOR STUDIO | Ultra-Modern Luxury Architecture & Interiors",
     description:
       "Award-winning luxury interior design & architecture studio crafting ultra-modern residential residences and commercial environments.",
     type: "website",
     locale: "en_IN",
+    images: [{ url: "/logo.png" }],
   },
 };
 
