@@ -95,11 +95,8 @@ export default function HomePage() {
         </Suspense>
 
         {/* 6. BEFORE & AFTER */}
-        <Suspense fallback={<SectionSkeleton className="h-[600px] bg-luxury-mid" />}>
-          <section id="transformations" className="relative py-24 bg-luxury-mid overflow-hidden">
-            <div className="ambient-orb ambient-orb-warm w-[400px] h-[400px] top-10 right-20 animate-orb-float-2" />
-            <BeforeAfterSlider />
-          </section>
+        <Suspense fallback={<SectionSkeleton className="h-[600px] bg-luxury-dark" />}>
+          <BeforeAfterSlider />
         </Suspense>
 
         {/* 7. PROCESS TIMELINE */}
