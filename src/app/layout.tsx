@@ -6,6 +6,7 @@ import Watermark from "@/components/Watermark";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://centurio-interior.com"),
   title: "CENTURIO INTERIOR STUDIO | Ultra-Modern Luxury Architecture & Interiors",
   description:
     "Award-winning luxury interior design & architecture studio crafting ultra-modern residential residences and prestigious commercial environments.",

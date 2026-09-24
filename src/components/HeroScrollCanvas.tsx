@@ -25,18 +25,20 @@ export default function HeroScrollCanvas() {
 
   const padFrame = (n: number) => String(n).padStart(3, "0");
 
-  /* ─── Hardware-Accelerated Image Loading ─── */
+  /* ─── Instant 1-Second Priority Loading Engine ─── */
   const loadImage = useCallback(
-    (index: number): Promise<void> =>
+    (index: number, updateProgress = false, priorityTotal = 1): Promise<void> =>
       new Promise((resolve) => {
         if (framesRef.current.has(index)) { resolve(); return; }
         const img = new Image();
         img.onload = async () => {
           if ("decode" in img) {
-            try { await img.decode(); } catch (_) { /* ignore decode errors */ }
+            try { await img.decode(); } catch (_) { /* ignore */ }
           }
           framesRef.current.set(index, img);
-          setLoadProgress(Math.round((framesRef.current.size / TOTAL_FRAMES) * 100));
+          if (updateProgress) {
+            setLoadProgress((prev) => Math.min(100, prev + Math.ceil(100 / priorityTotal)));
+          }
           resolve();
         };
         img.onerror = () => resolve();
@@ -48,23 +50,26 @@ export default function HeroScrollCanvas() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      // Phase 1: High-Priority Fast Start (Load initial 15 frames & key milestone frames first)
-      const priorityFrames = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 30, 60, 90, 120, 150, 179];
-      await Promise.all(priorityFrames.map((idx) => loadImage(idx)));
+      // Priority Phase: Load initial 15 frames for instant screen open (< 0.8s)
+      const priorityFrames = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+      await Promise.all(
+        priorityFrames.map((idx) => loadImage(idx, true, priorityFrames.length))
+      );
 
       if (cancelled) return;
-      // Reveal interface immediately after priority frames ready
+      setLoadProgress(100);
       setLoaded(true);
 
-      // Phase 2: Background Fill (Load remaining frames in non-blocking batches)
+      // Background Phase: Fetch remaining frames in quiet idle batches without blocking UI
       const remaining = Array.from({ length: TOTAL_FRAMES }, (_, i) => i).filter(
         (i) => !priorityFrames.includes(i)
       );
 
-      for (let i = 0; i < remaining.length; i += BATCH_SIZE) {
+      for (let i = 0; i < remaining.length; i += 15) {
         if (cancelled) break;
-        const batch = remaining.slice(i, i + BATCH_SIZE);
-        await Promise.all(batch.map((idx) => loadImage(idx)));
+        const batch = remaining.slice(i, i + 15);
+        await Promise.all(batch.map((idx) => loadImage(idx, false)));
+        await new Promise((res) => setTimeout(res, 40)); // Non-blocking throttle
       }
     })();
 

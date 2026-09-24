@@ -1,16 +1,16 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/contact/page": "app/contact/page.js",
   "/about/page": "app/about/page.js",
-  "/page": "app/page.js",
-  "/inspector/page": "app/inspector/page.js",
-  "/privacy/page": "app/privacy/page.js",
   "/design-process/page": "app/design-process/page.js",
+  "/contact/page": "app/contact/page.js",
   "/faq/page": "app/faq/page.js",
-  "/revelations/page": "app/revelations/page.js",
+  "/gallery/page": "app/gallery/page.js",
+  "/inspector/page": "app/inspector/page.js",
+  "/page": "app/page.js",
   "/portfolio/page": "app/portfolio/page.js",
-  "/services/page": "app/services/page.js",
+  "/privacy/page": "app/privacy/page.js",
   "/testimonials/page": "app/testimonials/page.js",
   "/terms/page": "app/terms/page.js",
-  "/gallery/page": "app/gallery/page.js"
+  "/services/page": "app/services/page.js",
+  "/revelations/page": "app/revelations/page.js"
 }

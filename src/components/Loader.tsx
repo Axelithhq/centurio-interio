@@ -21,6 +21,15 @@ export default function Loader({
   const [internalProgress, setInternalProgress] = useState(0);
   const [visible, setVisible] = useState(true);
 
+  // Hard safety timeout: loader auto-dismisses after max 2.0 seconds regardless of network speed
+  useEffect(() => {
+    const maxTimer = setTimeout(() => {
+      setVisible(false);
+      if (onComplete) onComplete();
+    }, 2000);
+    return () => clearTimeout(maxTimer);
+  }, [onComplete]);
+
   // If no external progress is provided, simulate a realistic smooth luxury load (0% -> 100%)
   useEffect(() => {
     if (typeof externalProgress === "number") return;
@@ -32,15 +41,15 @@ export default function Loader({
           setTimeout(() => {
             setVisible(false);
             if (onComplete) onComplete();
-          }, 400);
+          }, 300);
           return 100;
         }
         // Smooth logarithmic increments for realistic loading feel
         const diff = 100 - prev;
-        const inc = Math.max(1, Math.floor(Math.random() * 12 + diff * 0.1));
+        const inc = Math.max(1, Math.floor(Math.random() * 15 + diff * 0.15));
         return Math.min(100, prev + inc);
       });
-    }, 90);
+    }, 50);
 
     return () => clearInterval(interval);
   }, [externalProgress, onComplete]);
