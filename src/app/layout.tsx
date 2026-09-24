@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import FloatingButtons from "@/components/FloatingButtons";
 import Watermark from "@/components/Watermark";
 import "./globals.css";
 
@@ -32,8 +35,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-ivory text-charcoal antialiased">
-        <main>{children}</main>
+      <body className="bg-ivory text-charcoal antialiased flex flex-col min-h-screen">
+        {/* Global Floating Top Navbar */}
+        <Navbar />
+
+        {/* Main Content Area */}
+        <main className="flex-grow">{children}</main>
+
+        {/* Global Bottom Luxury Footer */}
+        <Footer />
+
+        {/* Global Floating Action Buttons */}
+        <FloatingButtons />
+
+        {/* Watermark */}
         <Watermark />
       </body>
     </html>

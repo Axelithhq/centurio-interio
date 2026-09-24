@@ -75,7 +75,6 @@ export default function HomePage() {
       <div className="relative bg-luxury-dark text-charcoal selection:bg-gold selection:text-white min-h-screen">
         <Background3D />
         <CursorSpotlight />
-        <Navbar />
 
         <HeroScrollCanvas />
 
@@ -144,8 +143,6 @@ export default function HomePage() {
         </Suspense>
 
         </div>
-
-        <Footer />
       </div>
     </SmoothScrollWrapper>
   );

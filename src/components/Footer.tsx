@@ -122,21 +122,21 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs font-mono">
               {[
-                { href: "#hero", label: "01 // Home Sanctuary", page: "/" },
-                { href: "#about", label: "02 // Design Philosophy", page: "/about" },
-                { href: "#services", label: "03 // Services Suite", page: "/services" },
-                { href: "#portfolio", label: "04 // Selected Portfolio", page: "/portfolio" },
-                { href: "#inspector", label: "05 // 360° Inspector", page: "/#inspector" },
-                { href: "#revelations", label: "06 // Interior Revelations", page: "/#revelations" },
-                { href: "#process", label: "07 // Process Methodology", page: "/design-process" },
-                { href: "#gallery", label: "08 // Visual Gallery", page: "/gallery" },
-                { href: "#testimonials", label: "09 // Client Reverence", page: "/testimonials" },
-                { href: "#faq", label: "10 // Questions & Guidance", page: "/faq" },
-                { href: "#contact", label: "11 // Private Engagement", page: "/contact" },
+                { href: "/#hero", label: "01 // Home Sanctuary" },
+                { href: "/#about", label: "02 // Design Philosophy" },
+                { href: "/#services", label: "03 // Services Suite" },
+                { href: "/#portfolio", label: "04 // Selected Portfolio" },
+                { href: "/#inspector", label: "05 // 360° Inspector" },
+                { href: "/#revelations", label: "06 // Interior Revelations" },
+                { href: "/#process", label: "07 // Process Methodology" },
+                { href: "/#gallery", label: "08 // Visual Gallery" },
+                { href: "/#testimonials", label: "09 // Client Reverence" },
+                { href: "/#faq", label: "10 // Questions & Guidance" },
+                { href: "/#contact", label: "11 // Private Engagement" },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
-                    href={item.page}
+                    href={item.href}
                     className="text-gray-400 hover:text-gold transition-colors duration-300 flex items-center justify-between group"
                   >
                     <span>{item.label}</span>

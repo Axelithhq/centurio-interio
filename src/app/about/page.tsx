@@ -8,6 +8,7 @@ import PageHeader from "@/components/PageHeader";
 import StudioPhilosophySection from "@/components/StudioPhilosophySection";
 import StatsCounter from "@/components/StatsCounter";
 import PrivateEngagementSection from "@/components/PrivateEngagementSection";
+import FounderCard from "@/components/FounderCard";
 import { teamMembers, whyChooseUs } from "@/lib/data";
 
 const whyIcons: Record<string, React.ReactNode> = {
@@ -56,58 +57,8 @@ export default function AboutPage() {
       {/* ===== 3. METRIC BENCHMARKS & STATS COUNTER ===== */}
       <StatsCounter />
 
-      {/* ===== 4. MASTER CRAFTSMEN & ARCHITECTS TEAM ===== */}
-      <section className="py-24 bg-[#141210] text-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-gold text-xs font-mono tracking-widest uppercase block mb-2">
-              Architectural Leadership
-            </span>
-            <h2 className="font-serif-luxury text-3xl sm:text-5xl text-white font-normal">
-              Meet Our <span className="gold-text italic">Principal Artisans</span>
-            </h2>
-            <p className="text-gray-400 text-sm font-light mt-3 leading-relaxed">
-              Master interior architects, spatial engineers, and lighting curators dedicated to precision.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30, rotateY: index % 2 === 0 ? 6 : -6 }}
-                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-[#1A1815] border border-gold/20 rounded-sm overflow-hidden hover:border-gold shadow-xl transition-all duration-500 hover:-translate-y-2"
-              >
-                <div className="relative h-80 w-full overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#141210] via-transparent to-transparent opacity-80" />
-                </div>
-
-                <div className="p-6 relative z-10 border-t border-white/10 bg-[#1A1815]">
-                  <span className="text-gold text-[10px] font-mono tracking-widest uppercase block mb-1">
-                    {member.role}
-                  </span>
-                  <h3 className="font-serif-luxury text-xl text-white mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-gray-400 text-xs font-light leading-relaxed">
-                    {member.bio}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===== 4. ARCHITECTURAL LEADERSHIP (FOUNDER WASIM AKRAM) ===== */}
+      <FounderCard />
 
       {/* ===== 5. WHY WORK WITH CENTURIO ===== */}
       <section className="py-24 bg-gradient-to-b from-[#FAF8F5] via-[#F4EFE6] to-[#ECE5D8] text-charcoal relative overflow-hidden">
