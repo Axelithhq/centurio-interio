@@ -2,78 +2,97 @@
   "app\\page.tsx -> @/components/Background3D": {
     "id": 5290,
     "files": [
-      "static/chunks/290.434163a98066c0ee.js"
+      "static/chunks/5290.91b2fd58fc1e35d4.js"
     ]
   },
   "app\\page.tsx -> @/components/BeforeAfterSlider": {
     "id": 1291,
     "files": [
-      "static/chunks/825.af53321d190fdff3.js",
-      "static/chunks/291.d42175abed3429d2.js"
+      "static/chunks/2825.b04d362a3ccc9a55.js",
+      "static/chunks/1291.fd3da72624fe88a6.js"
     ]
   },
   "app\\page.tsx -> @/components/CursorSpotlight": {
     "id": 7235,
     "files": [
-      "static/chunks/235.822ab53e230e7779.js"
+      "static/chunks/7235.adb663ff1fb2dbfd.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/FaqSection": {
+    "id": 350,
+    "files": [
+      "static/chunks/350-7665a71fc7217570.js"
     ]
   },
   "app\\page.tsx -> @/components/HeroScrollCanvas": {
     "id": 6897,
     "files": [
-      "static/chunks/897.a760bb923c433e9a.js"
+      "static/chunks/6897.2caf331745a8d76f.js"
     ]
   },
   "app\\page.tsx -> @/components/HorizontalGallery": {
     "id": 7355,
     "files": [
-      "static/chunks/355.17c59ae86a663045.js"
+      "static/chunks/7355-af14f0ed6e771f34.js"
     ]
   },
   "app\\page.tsx -> @/components/LayoutGallery": {
-    "id": 7191,
+    "id": 3724,
     "files": [
-      "static/chunks/191.ba14f320c4cfec63.js"
+      "static/chunks/3724-943104a37d319513.js",
+      "static/chunks/6352.22ff42ed11ae32cf.js"
     ]
   },
   "app\\page.tsx -> @/components/MouseParallax3D": {
     "id": 1858,
     "files": [
-      "static/chunks/858.c86e4b9d8c08cf08.js"
+      "static/chunks/1858.a735a2dc49f3635f.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/PrivateEngagementSection": {
+    "id": 4341,
+    "files": [
+      "static/chunks/4341-16369b0817df76e3.js"
     ]
   },
   "app\\page.tsx -> @/components/ProcessTimeline": {
     "id": 4118,
     "files": [
-      "static/chunks/118.a733ee96ef3cd739.js"
+      "static/chunks/4118.c45c62fc5f82ba1a.js"
     ]
   },
   "app\\page.tsx -> @/components/Room360Inspector": {
     "id": 6509,
     "files": [
-      "static/chunks/b536a0f1.b1ab7b1d01c12b34.js",
-      "static/chunks/bd904a5c.c8f1061e723af470.js",
-      "static/chunks/825.af53321d190fdff3.js",
-      "static/chunks/504.5ff1aebd452eb656.js",
-      "static/chunks/509.f1b52d416695955d.js"
+      "static/chunks/b536a0f1.95881c15e4a07202.js",
+      "static/chunks/bd904a5c.99b7443241dfb85e.js",
+      "static/chunks/2825.b04d362a3ccc9a55.js",
+      "static/chunks/8504.bb3f9d95305da1d4.js",
+      "static/chunks/6509.484f05ab5299b9b7.js"
     ]
   },
   "app\\page.tsx -> @/components/SmoothScrollWrapper": {
     "id": 2376,
     "files": [
-      "static/chunks/376.9a590bfe055cbef7.js"
+      "static/chunks/2376.efad355e9a84aefc.js"
     ]
   },
   "app\\page.tsx -> @/components/StatsCounter": {
     "id": 2929,
     "files": [
-      "static/chunks/929.e74cad9db8658656.js"
+      "static/chunks/2929.3a9ed992a9072738.js"
+    ]
+  },
+  "app\\page.tsx -> @/components/TestimonialsSection": {
+    "id": 8715,
+    "files": [
+      "static/chunks/8715-ec8d3bb4ee9c240b.js"
     ]
   },
   "components\\SmoothScrollWrapper.tsx -> lenis": {
     "id": 9096,
     "files": [
-      "static/chunks/96.bae93ca2c14b65ab.js"
+      "static/chunks/9096.9b19ae2a4f507fde.js"
     ]
   }
 }

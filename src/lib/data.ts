@@ -23,10 +23,38 @@ export const businessInfo = {
 };
 
 export const studioStats = [
-  { label: "Years of Craftsmanship", value: 14, suffix: "+" },
-  { label: "Luxury Residencies", value: 340, suffix: "+" },
-  { label: "Design Excellence Awards", value: 22, suffix: "" },
-  { label: "Sq. Ft. Designed", value: 920, suffix: "k+" },
+  {
+    label: "Years of Craftsmanship",
+    value: 14,
+    suffix: "+",
+    subtitle: "Established Studio Legacy since 2011",
+    tag: "Architectural Heritage",
+    icon: "crown",
+  },
+  {
+    label: "Luxury Residencies",
+    value: 340,
+    suffix: "+",
+    subtitle: "Turnkey Villas & Sky Penthouses",
+    tag: "Completed Portfolio",
+    icon: "villa",
+  },
+  {
+    label: "Design Excellence Awards",
+    value: 22,
+    suffix: "",
+    subtitle: "International Architectural Honors",
+    tag: "Global Honors",
+    icon: "trophy",
+  },
+  {
+    label: "Sq. Ft. Portfolio",
+    value: 920,
+    suffix: "k+",
+    subtitle: "Master-Planned Spatial Footprint",
+    tag: "Spatial Execution",
+    icon: "scale",
+  },
 ];
 
 export const services = [
@@ -304,67 +332,242 @@ export const transformations = [
 ];
 
 export const galleryImages = [
-  { id: 1, src: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&q=80", alt: "Living Lounge Space" },
-  { id: 2, src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Master Suite" },
-  { id: 3, src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80", alt: "Architectural Kitchen" },
-  { id: 4, src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80", alt: "Executive Office Suite" },
-  { id: 5, src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", alt: "Boutique Hotel Lobby" },
-  { id: 6, src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80", alt: "Restaurant Interior" },
-  { id: 7, src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Exterior Villa Facade" },
-  { id: 8, src: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=800&q=80", alt: "Modular Kitchen Unit" },
-  { id: 9, src: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&q=80", alt: "Spa Bathroom Suite" },
+  {
+    id: 1,
+    src: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=1200&q=85",
+    alt: "Solarium Villa Great Room",
+    category: "Residential",
+    location: "Civil Lines, Jaipur",
+    specs: "Italian Travertine & Bouclé Lounge",
+  },
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=85",
+    alt: "Master Suite & Wardrobe",
+    category: "Residential",
+    location: "Raja Park, Jaipur",
+    specs: "European Oak & Ambient LED Cove",
+  },
+  {
+    id: 3,
+    src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=85",
+    alt: "Gourmet Kitchen Island",
+    category: "Residential",
+    location: "Vaishali Nagar, Jaipur",
+    specs: "Quartzite Waterfall Joinery",
+  },
+  {
+    id: 4,
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=85",
+    alt: "Monolith Executive Suite",
+    category: "Commercial",
+    location: "C-Scheme, Jaipur",
+    specs: "Frameless Glass & Slatted Acoustic Timber",
+  },
+  {
+    id: 5,
+    src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=85",
+    alt: "Verdant Courtyard Villa",
+    category: "Heritage",
+    location: "Udaipur, Rajasthan",
+    specs: "Rajasthani Stone Arches & Steel Glass",
+  },
+  {
+    id: 6,
+    src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85",
+    alt: "L'Ombre Dining Sanctuary",
+    category: "Commercial",
+    location: "Jaipur",
+    specs: "Terracotta Clay Render & Amber Lighting",
+  },
+  {
+    id: 7,
+    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85",
+    alt: "Villa Facade & Terrace",
+    category: "Residential",
+    location: "Civil Lines, Jaipur",
+    specs: "Floating Cantilever Balcony",
+  },
+  {
+    id: 8,
+    src: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=1200&q=85",
+    alt: "German Joinery Kitchen",
+    category: "Residential",
+    location: "Vaishali Nagar, Jaipur",
+    specs: "Soft-Close Matte Black Joinery",
+  },
+  {
+    id: 9,
+    src: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=1200&q=85",
+    alt: "Subterranean Spa Suite",
+    category: "Heritage",
+    location: "Udaipur, Rajasthan",
+    specs: "Natural Slate Stone & Rain Shower",
+  },
 ];
 
 export const testimonials = [
   {
     id: 1,
     name: "Priya & Rajesh Sharma",
-    role: "Villa Owners",
+    role: "Private Villa Owners",
     location: "Civil Lines, Jaipur",
+    project: "The Solarium Villa",
+    category: "Residential Sanctuary",
     rating: 5,
-    text: "CENTURIO INTERIOR STUDIO created a home that feels like a private luxury resort. Their mastery over materials, lighting, and spatial proportion is truly world-class.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-    project: "Solarium Villa"
+    text: "CENTURIO INTERIOR STUDIO created a home that feels like a private luxury resort. Their mastery over natural Italian travertine, ambient lighting, and spatial proportion is truly world-class.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80",
+    projectImage: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1000&q=80",
+    scope: "8,500 sq. ft. Estate",
   },
   {
     id: 2,
     name: "Vikramaditya Rathore",
     role: "Managing Director",
-    location: "Jaipur",
+    location: "C-Scheme, Jaipur",
+    project: "Monolith Executive Suite",
+    category: "Commercial Architecture",
     rating: 5,
-    text: "Our executive offices designed by Centurio have drastically elevated client impressions. The level of architectural craftsmanship and timing precision was exemplary.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-    project: "Monolith Suite"
+    text: "Our executive offices designed by Centurio have drastically elevated client impressions. The level of architectural craftsmanship, acoustic precision, and timing discipline was exemplary.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80",
+    projectImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80",
+    scope: "6,800 sq. ft. HQ",
   },
   {
     id: 3,
     name: "Ananya & Rohan Gupta",
     role: "Penthouse Owners",
     location: "Raja Park, Jaipur",
+    project: "Aura Sky Penthouse",
+    category: "Luxury Sky Residency",
     rating: 5,
-    text: "From white-glove material selection to the final unveiling reveal, every step was seamless. The 3D visualization matched our completed apartment with 100% accuracy.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
-    project: "Aura Sky Penthouse"
+    text: "From white-glove material selection to the final unveiling reveal, every step was seamless. The WebGL 3D visualization matched our completed apartment with 100% precision.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80",
+    projectImage: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=1000&q=80",
+    scope: "4,200 sq. ft. Penthouse",
+  },
+  {
+    id: 4,
+    name: "Dr. Devendra & Shalini Mehta",
+    role: "Courtyard Villa Owners",
+    location: "Udaipur, Rajasthan",
+    project: "Verdant Courtyard Estate",
+    category: "Heritage Renovation",
+    rating: 5,
+    text: "Restoring our heritage property while seamlessly embedding double-height glass curtain walls was a masterpiece of architectural engineering. Centurio surpassed our expectations.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80",
+    projectImage: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&q=80",
+    scope: "5,400 sq. ft. Heritage Estate",
+  },
+  {
+    id: 5,
+    name: "Karan & Meera Kapoor",
+    role: "Sanctuary Owners",
+    location: "Vaishali Nagar, Jaipur",
+    project: "Sanctuary Hill Residence",
+    category: "Bespoke Modern Home",
+    rating: 5,
+    text: "The integration of Japanese timber joinery, subterranean spa lighting, and custom bouclé lounges transformed our home into a serene architectural sanctuary.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&q=80",
+    projectImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80",
+    scope: "6,100 sq. ft. Villa",
   },
 ];
 
-export const faqs = [
+export interface FAQItem {
+  id: string;
+  category: "Philosophy & Design" | "Timelines & Budget" | "Turnkey & Execution" | "Warranty & Support";
+  q: string;
+  a: string;
+  takeaways: string[];
+  tags: string[];
+}
+
+export const faqs: FAQItem[] = [
   {
+    id: "faq-1",
+    category: "Philosophy & Design",
     q: "What defines CENTURIO's architectural design philosophy?",
-    a: "We practice minimal luxury architectural interior design. We focus on clean geometric proportion, rich natural textures (stone, timber, metal), generous natural lighting, and zero unnecessary visual clutter.",
+    a: "We practice minimal luxury architectural interior design. We focus on clean geometric proportion, rich natural textures (honed stone, smoked timber, patinated metals), generous natural lighting, and zero unnecessary visual clutter.",
+    takeaways: [
+      "Clean geometric architectural proportion & spatial purity",
+      "Tactile pairing of natural stone, timber, and warm metallic accents",
+      "Biophilic natural lighting & concealed architectural illumination"
+    ],
+    tags: ["#Minimalism", "#SpatialFlow", "#Textures"]
   },
   {
+    id: "faq-2",
+    category: "Philosophy & Design",
     q: "How does the initial consultation and 3D visualization process work?",
-    a: "We start with a site visit and spatial audit, followed by concept moodboards and high-fidelity 3D WebGL visualizations. You can experience your future space with interactive materials before construction begins.",
+    a: "We start with an on-site spatial audit, followed by concept moodboards and high-fidelity 3D WebGL visualizations. You can experience your future space with real-time lighting and tactile material simulation before construction begins.",
+    takeaways: [
+      "In-depth lifestyle discovery & spatial flow audit",
+      "Interactive 3D WebGL digital twin model of your estate",
+      "Physical material sample trunk delivered to your doorstep"
+    ],
+    tags: ["#3DVisualization", "#WebGL", "#SpatialAudit"]
   },
   {
+    id: "faq-3",
+    category: "Turnkey & Execution",
     q: "Do you handle complete turnkey management from foundation to decor?",
-    a: "Yes. Our white-glove turnkey service includes structural modifications, civil work, custom millwork fabrication, lighting design, material imports, and final artistic styling.",
+    a: "Yes. Our white-glove turnkey service includes structural modifications, civil work, custom millwork fabrication, HVAC & home automation, lighting design, direct material imports, and final artistic styling.",
+    takeaways: [
+      "Single point of contact & complete site governance",
+      "In-house master carpenters, civil engineers & interior stylists",
+      "White-glove deep clean & art placement prior to handover"
+    ],
+    tags: ["#TurnkeyService", "#CustomMillwork", "#CivilEngineering"]
   },
   {
-    q: "What is the typical project timeline?",
-    a: "Luxury residential residences take approximately 8–16 weeks depending on scale and bespoke custom joinery. Commercial suites typically take 6–10 weeks.",
+    id: "faq-4",
+    category: "Timelines & Budget",
+    q: "What is the typical project timeline and handover guarantee?",
+    a: "Luxury residential residences take approximately 8–16 weeks depending on scale and bespoke custom joinery. Commercial suites typically take 6–10 weeks. Every project is backed by a strict milestone schedule.",
+    takeaways: [
+      "8–16 weeks average for luxury villas & penthouses",
+      "Live client dashboard with weekly 3D progress reports",
+      "Guaranteed completion date with timeline SLA"
+    ],
+    tags: ["#ProjectTimeline", "#MilestoneTracking", "#Handover"]
   },
+  {
+    id: "faq-5",
+    category: "Timelines & Budget",
+    q: "How are project estimates and material budgets structured?",
+    a: "We provide line-item transparent Bill of Quantities (BOQ) with guaranteed zero hidden variations. Every material grade, hardware brand, and finish specification is locked before civil work commences.",
+    takeaways: [
+      "100% itemized transparency down to hardware screws",
+      "Fixed cost contract with zero surprise billing",
+      "Phased milestone payments aligned with site progress"
+    ],
+    tags: ["#TransparentCosting", "#FixedBOQ", "#NoHiddenFees"]
+  },
+  {
+    id: "faq-6",
+    category: "Warranty & Support",
+    q: "What warranties and post-handover support do you provide?",
+    a: "All CENTURIO residences come with a 10-Year Structural & Joinery Warranty, alongside 1-year complimentary quarterly health checks for home automation, plumbing, and finish seals.",
+    takeaways: [
+      "10-Year comprehensive structural & millwork warranty",
+      "1-Year complimentary quarterly preventive maintenance",
+      "24/7 dedicated studio concierge helpline"
+    ],
+    tags: ["#10YearWarranty", "#Maintenance", "#ConciergeSupport"]
+  },
+  {
+    id: "faq-7",
+    category: "Philosophy & Design",
+    q: "Can we source custom imported materials and Italian furniture?",
+    a: "Absolutely. We maintain direct partnerships with Italian stone quarries, Scandinavian timber mills, and European designer lighting houses. We manage customs, logistics, and white-glove delivery directly to site.",
+    takeaways: [
+      "Direct quarry access for rare Calacatta & Carrara marbles",
+      "Bespoke custom furniture built to exact room proportions",
+      "Seamless international import & customs handling"
+    ],
+    tags: ["#ItalianMarble", "#ImportedDecor", "#BespokeFurniture"]
+  }
 ];
 
 export const designProcess = [
