@@ -372,41 +372,51 @@ export const designProcess = [
     step: "01",
     title: "Discovery & Spatial Audit",
     subtitle: "Understanding Life & Form",
+    duration: "Week 1 – 2",
     description:
-      "We analyze your lifestyle, spatial flow, natural light orientation, and aesthetic aspirations during detailed studio sessions.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
+      "We analyze your lifestyle, spatial flow, natural light orientation, and aesthetic aspirations during detailed studio discovery sessions.",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
+    deliverables: ["Spatial Layout Blueprint", "Natural Light Analysis", "Lifestyle Flow Mapping"],
   },
   {
     step: "02",
     title: "3D Architectural Renderings",
     subtitle: "Precision Visual Engineering",
+    duration: "Week 2 – 4",
     description:
-      "We generate photorealistic 3D spatial models, lighting simulations, and material tactile pairings for your review.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+      "We generate photorealistic 3D spatial models, interactive WebGL lighting simulations, and material tactile pairings for your review.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    deliverables: ["WebGL 3D Studio Model", "VR Lighting Simulation", "Material Texture Lab"],
   },
   {
     step: "03",
     title: "Material & Craft Curation",
     subtitle: "Sourcing Excellence",
+    duration: "Week 4 – 6",
     description:
-      "We hand-select Italian marbles, European white oak, bespoke bronze fittings, and custom textiles from world-class artisans.",
-    image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80",
+      "We hand-select rare Italian marbles, European white oak, bespoke champagne brass fittings, and custom textiles from world-class artisans.",
+    image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80",
+    deliverables: ["Italian Marble Imports", "European Hardwood Swatches", "Bespoke Metal Finish Lab"],
   },
   {
     step: "04",
     title: "Turnkey Precision Execution",
     subtitle: "Bringing Form to Life",
+    duration: "Week 6 – 14",
     description:
-      "Our master craftsmen and structural engineers execute the project under strict quality control and white-glove project management.",
-    image: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80",
+      "Our master craftsmen and structural engineers execute the project under strict quality control, timeline guarantees, and white-glove management.",
+    image: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&q=80",
+    deliverables: ["Structural Engineering", "Bespoke Joinery Millwork", "Quality Benchmark Audit"],
   },
   {
     step: "05",
     title: "The Unveiling Handover",
     subtitle: "Your Sanctuary Revealed",
+    duration: "Week 14+",
     description:
-      "A curated walkthrough of your completed sanctuary, fully furnished, styled, cleaned, and presented with complete warranties.",
-    image: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=600&q=80",
+      "A curated walkthrough of your completed sanctuary, fully furnished, artfully styled, deep cleaned, and presented with complete warranty vaults.",
+    image: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&q=80",
+    deliverables: ["White-Glove Styling", "Sanctuary Maintenance Vault", "Turnkey Key Presentation"],
   },
 ];
 

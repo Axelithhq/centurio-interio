@@ -45,8 +45,7 @@
   "app\\page.tsx -> @/components/ProcessTimeline": {
     "id": 4118,
     "files": [
-      "static/chunks/694.03b3e49a469bbe4d.js",
-      "static/chunks/118.2942c540c2dfa276.js"
+      "static/chunks/118.a733ee96ef3cd739.js"
     ]
   },
   "app\\page.tsx -> @/components/Room360Inspector": {
