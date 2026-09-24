@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import NextImage from "next/image";
+import Loader from "@/components/Loader";
 
 const TOTAL_FRAMES = 180;
 const FRAME_PATH = "/Hero-Sequence/ezgif-frame-";
@@ -24,13 +25,16 @@ export default function HeroScrollCanvas() {
 
   const padFrame = (n: number) => String(n).padStart(3, "0");
 
-  /* ─── Image Loading ─── */
+  /* ─── Hardware-Accelerated Image Loading ─── */
   const loadImage = useCallback(
     (index: number): Promise<void> =>
       new Promise((resolve) => {
         if (framesRef.current.has(index)) { resolve(); return; }
         const img = new Image();
-        img.onload = () => {
+        img.onload = async () => {
+          if ("decode" in img) {
+            try { await img.decode(); } catch (_) { /* ignore decode errors */ }
+          }
           framesRef.current.set(index, img);
           setLoadProgress(Math.round((framesRef.current.size / TOTAL_FRAMES) * 100));
           resolve();
@@ -44,13 +48,26 @@ export default function HeroScrollCanvas() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      for (let i = 0; i < TOTAL_FRAMES; i += BATCH_SIZE) {
+      // Phase 1: High-Priority Fast Start (Load initial 15 frames & key milestone frames first)
+      const priorityFrames = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 30, 60, 90, 120, 150, 179];
+      await Promise.all(priorityFrames.map((idx) => loadImage(idx)));
+
+      if (cancelled) return;
+      // Reveal interface immediately after priority frames ready
+      setLoaded(true);
+
+      // Phase 2: Background Fill (Load remaining frames in non-blocking batches)
+      const remaining = Array.from({ length: TOTAL_FRAMES }, (_, i) => i).filter(
+        (i) => !priorityFrames.includes(i)
+      );
+
+      for (let i = 0; i < remaining.length; i += BATCH_SIZE) {
         if (cancelled) break;
-        const end = Math.min(i + BATCH_SIZE, TOTAL_FRAMES);
-        await Promise.all(Array.from({ length: end - i }, (_, j) => loadImage(i + j)));
+        const batch = remaining.slice(i, i + BATCH_SIZE);
+        await Promise.all(batch.map((idx) => loadImage(idx)));
       }
-      if (!cancelled) setLoaded(true);
     })();
+
     return () => { cancelled = true; };
   }, [loadImage]);
 
@@ -243,40 +260,16 @@ export default function HeroScrollCanvas() {
         }}
       >
 
-          {/* Loading Screen */}
-          <AnimatePresence>
-            {!loaded && (
-              <motion.div key="loader" initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-white">
-                <div className="text-center">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gold/50 mx-auto mb-4 shadow-2xl">
-                    <NextImage
-                      src="/logo.png"
-                      alt="CENTURIO DESIGNS Emblem"
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h1 className="font-playfair text-5xl md:text-7xl text-charcoal mb-1 tracking-tight">
-                    CENTURIO<span className="text-gold"> DESIGNS</span>
-                  </h1>
-                  <p className="text-gray-400 text-xs tracking-[0.35em] uppercase font-poppins mt-2">Loading Experience</p>
-                  <div className="mt-10 w-56 h-[2px] bg-gray-200 mx-auto relative overflow-hidden rounded-full">
-                    <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold-dark via-gold to-gold-light rounded-full transition-all duration-300" style={{ width: `${loadProgress}%` }} />
-                  </div>
-                  <div className="mt-4 flex items-center justify-center gap-2">
-                    <span className="text-gold font-poppins text-sm font-medium tabular-nums">{loadProgress}</span>
-                    <span className="text-gray-400 font-poppins text-sm">%</span>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Ultra-Luxury Animated Preloader */}
+          <Loader
+            progress={loadProgress}
+            isDone={loaded}
+            subtitle="PRELOADING 1080p CANVAS EXPERIENCE"
+          />
 
           {/* Frame Sequence Canvas */}
           <canvas ref={canvasRef} className="absolute inset-0 w-full h-full"
-            style={{ imageRendering: "auto", opacity: canvasOpacity, transition: "opacity 0.4s ease" }} />
+            style={{ imageRendering: "auto", opacity: canvasOpacity, transition: "opacity 0.4s ease", willChange: "transform", transform: "translateZ(0)" }} />
 
           {/* Heavy Vignette */}
           <div className="absolute inset-0 pointer-events-none z-10" style={{
@@ -479,19 +472,35 @@ export default function HeroScrollCanvas() {
                 </span>
               </div>
 
-              {/* 4. Glass Description Panel */}
+              {/* 4. Glass Description Panel with Feature Chips */}
               <div
-                className="inline-block backdrop-blur-md bg-black/40 rounded-2xl px-8 py-4 border border-gold/20 mb-8 shadow-2xl transition-all duration-300"
+                className="inline-block backdrop-blur-xl bg-black/60 rounded-2xl px-8 py-5 border border-gold/30 mb-8 shadow-2xl transition-all duration-300 max-w-2xl mx-auto"
                 style={{ opacity: descOpacity, transform: `translateY(${descY}px)` }}
               >
-                <p className="text-gray-200 text-xs sm:text-sm md:text-base font-poppins font-light tracking-wide max-w-xl mx-auto leading-relaxed">
-                  Your Vision, Our Creation. Where every space radiates unmatched <span className="text-gold font-medium">luxury and elegance</span>.
+                <p className="text-gray-200 text-xs sm:text-sm md:text-base font-poppins font-light tracking-wide leading-relaxed mb-4">
+                  Where spatial minimalism meets Italian craft. Experience your residence before construction with interactive <span className="text-gold font-medium">WebGL 3D digital twin visualization</span>.
                 </p>
+
+                {/* Feature Highlight Badges */}
+                <div className="flex flex-wrap items-center justify-center gap-2 pt-1 border-t border-white/10">
+                  <span className="text-[10px] font-mono text-gold bg-gold/10 border border-gold/25 px-3 py-1 rounded-full">
+                    🏛️ Minimal Penthouses
+                  </span>
+                  <span className="text-[10px] font-mono text-gold bg-gold/10 border border-gold/25 px-3 py-1 rounded-full">
+                    🕹️ WebGL 3D Twin
+                  </span>
+                  <span className="text-[10px] font-mono text-gold bg-gold/10 border border-gold/25 px-3 py-1 rounded-full">
+                    💎 Italian Marble
+                  </span>
+                  <span className="text-[10px] font-mono text-gold bg-gold/10 border border-gold/25 px-3 py-1 rounded-full">
+                    🛡️ 10-Year SLA
+                  </span>
+                </div>
               </div>
 
               {/* 5. ATTRACTIVE & ENLARGED LUXURY CTA BUTTONS */}
               <div
-                className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 pointer-events-auto mt-2 transition-all duration-300"
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pointer-events-auto mt-2 transition-all duration-300"
                 style={{
                   opacity: buttonsOpacity,
                   transform: `translateY(${buttonsY}px) scale(${buttonsScale})`,
@@ -499,31 +508,34 @@ export default function HeroScrollCanvas() {
               >
                 {/* Primary CTA: START YOUR PROJECT -> */}
                 <Link href="/contact"
-                  className="group relative px-12 py-5 sm:px-14 sm:py-5.5 rounded-full text-xs sm:text-sm md:text-base font-poppins font-bold tracking-[0.25em] uppercase overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 border border-gold/40"
+                  className="group relative px-8 py-4 sm:px-10 sm:py-4.5 rounded-full text-xs sm:text-sm font-poppins font-bold tracking-[0.2em] uppercase overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 border border-gold/40 shadow-[0_0_40px_rgba(197,160,89,0.4)]"
                   style={{
                     background: "linear-gradient(135deg, #D4AF37 0%, #FFF3D6 45%, #AA7C11 100%)",
                     color: "#0C0B0A",
-                    boxShadow: "0 0 50px rgba(200,169,106,0.55), inset 0 2px 0 rgba(255,255,255,0.6)",
                   }}>
-                  {/* Animated Light Sweep Line */}
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-                  <span className="relative z-10 flex items-center gap-3 drop-shadow-sm">
+                  <span className="relative z-10 flex items-center gap-2.5">
                     Start Your Project
-                    <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2 text-[#0C0B0A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5 text-[#0C0B0A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
                 </Link>
 
-                {/* Secondary CTA: VIEW PORTFOLIO */}
+                {/* Secondary CTA: 360° INSPECTOR */}
+                <Link href="/inspector"
+                  className="group relative px-8 py-4 sm:px-10 sm:py-4.5 rounded-full text-xs sm:text-sm font-poppins font-bold tracking-[0.2em] uppercase border border-gold/50 text-gold hover:border-gold hover:text-white hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md bg-black/60 shadow-xl overflow-hidden">
+                  <span className="absolute inset-0 bg-gold/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    🕹️ 360° Studio Inspector
+                  </span>
+                </Link>
+
+                {/* Tertiary CTA: VIEW PORTFOLIO */}
                 <Link href="/portfolio"
-                  className="group relative px-12 py-5 sm:px-14 sm:py-5.5 rounded-full text-xs sm:text-sm md:text-base font-poppins font-bold tracking-[0.25em] uppercase border-2 border-gold/50 text-white hover:border-gold hover:text-gold hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md bg-black/60 shadow-2xl hover:shadow-gold/30 overflow-hidden">
-                  <span className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  className="group relative px-8 py-4 sm:px-10 sm:py-4.5 rounded-full text-xs sm:text-sm font-poppins font-bold tracking-[0.2em] uppercase border border-white/20 text-gray-200 hover:border-white hover:text-white hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md bg-black/40 overflow-hidden">
                   <span className="relative z-10 flex items-center gap-2">
                     View Portfolio
-                    <svg className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                    </svg>
                   </span>
                 </Link>
               </div>
